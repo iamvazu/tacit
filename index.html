@@ -1,0 +1,579 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Tacit Exchange</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a working ledger — left-aligned editorial columns, a de-identified "trace" specimen as the hero, redaction bars + highlighter marks as the one motif */
+:root{
+  --paper:#F2F4F1; --sheet:#FFFFFF; --ink:#0F1A24; --ink-2:#3D4A55; --rule:#D5DBD8;
+  --mark:#F5D547; --mark-ink:#2A2300; --redact:#0F1A24; --teal:#0F6E68; --teal-soft:#DCEDEA;
+  --ok:#1E7A4C; --warn:#A86A00; --bad:#B23A2E;
+  --f-display:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --f-body:"IBM Plex Sans", "Segoe UI", Roboto, Arial, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0C141B; --sheet:#121D26; --ink:#E7ECEA; --ink-2:#A3B0B8; --rule:#26343F;
+  --mark:#E9C83A; --mark-ink:#1D1800; --redact:#E7ECEA; --teal:#4FC1B6; --teal-soft:#13302E;
+  --ok:#4CC28A; --warn:#E3A93A; --bad:#EF7A6C; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0C141B; --sheet:#121D26; --ink:#E7ECEA; --ink-2:#A3B0B8; --rule:#26343F;
+  --mark:#E9C83A; --mark-ink:#1D1800; --redact:#E7ECEA; --teal:#4FC1B6; --teal-soft:#13302E;
+  --ok:#4CC28A; --warn:#E3A93A; --bad:#EF7A6C; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:16px/1.6 var(--f-body);padding-inline:20px}
+.wrap{max-width:1140px;margin-inline:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:clamp(30px,4.4vw,48px);font-weight:800;letter-spacing:-.02em}
+h3{font-size:20px;font-weight:700}
+p{margin:0}
+.eyebrow{font:500 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.lede{font-size:18px;color:var(--ink-2);max-width:62ch}
+.mark{background:linear-gradient(transparent 12%,var(--mark) 12%,var(--mark) 88%,transparent 88%);color:var(--mark-ink);padding-inline:.15em}
+.redact{background:var(--redact);color:transparent;border-radius:2px;user-select:none;padding-inline:.2em}
+section{padding-block:88px;border-top:1px solid var(--rule)}
+.sec-head{display:grid;gap:14px;margin-bottom:40px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px/1 var(--f-body);padding:15px 22px;border-radius:6px;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn:focus-visible,input:focus-visible,select:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.mono{font-family:var(--f-mono)}
+.num{font-variant-numeric:tabular-nums}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--paper);border-bottom:1px solid var(--rule);margin-inline:-20px;padding:14px 20px}
+nav .wrap{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.logo{font:800 22px/1 var(--f-display);letter-spacing:-.03em;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{display:inline-block;width:22px;height:9px;background:var(--redact);border-radius:2px}
+.logo b{font-weight:800}
+.navlinks{display:flex;gap:20px;font-size:14px;color:var(--ink-2);margin-left:auto;flex-wrap:wrap}
+.navlinks a{text-decoration:none}.navlinks a:hover{color:var(--ink)}
+@media (max-width:820px){.navlinks{display:none}nav .btn{margin-left:auto}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-block:64px 80px}
+.hero h1{font-size:clamp(40px,6.2vw,76px);font-weight:800;letter-spacing:-.035em;margin-block:18px 22px}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero .fine{margin-top:18px;font-size:13px;color:var(--ink-2)}
+@media (max-width:900px){.hero{grid-template-columns:1fr;gap:40px}}
+
+.trace{background:var(--sheet);border:1px solid var(--rule);border-radius:10px;box-shadow:0 18px 50px -24px rgba(15,26,36,.35);min-width:0;overflow:hidden}
+.trace header{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid var(--rule);font:500 12px var(--f-mono);color:var(--ink-2);flex-wrap:wrap}
+.trace ol{list-style:none;margin:0;padding:8px 0}
+.trace li{display:grid;grid-template-columns:62px 1fr;gap:12px;padding:10px 16px;font-size:14px;line-height:1.5}
+.trace li .t{font:500 12px var(--f-mono);color:var(--ink-2);padding-top:2px}
+.trace li .why{display:block;margin-top:5px;font:500 11px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--teal)}
+.trace footer{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;background:var(--teal-soft);font:500 12px var(--f-mono);color:var(--teal);flex-wrap:wrap}
+
+/* gap */
+.gap{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--sheet)}
+.gap>div{padding:32px;display:grid;gap:14px;align-content:start}
+.gap>div+div{border-left:1px solid var(--rule)}
+.gap ul{margin:0;padding-left:18px;color:var(--ink-2);display:grid;gap:6px}
+.gap .big{font:800 44px/1 var(--f-display);letter-spacing:-.03em}
+@media (max-width:720px){.gap{grid-template-columns:1fr}.gap>div+div{border-left:0;border-top:1px solid var(--rule)}}
+
+/* sources table */
+.tbl{overflow-x:auto;border:1px solid var(--rule);border-radius:10px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:15px}
+th,td{text-align:left;padding:16px 18px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font:500 12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);background:var(--paper)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-family:var(--f-display);font-weight:700;font-size:17px;white-space:nowrap}
+td .tools{font:400 13px var(--f-mono);color:var(--ink-2)}
+.pill{display:inline-block;font:500 12px var(--f-mono);padding:3px 8px;border-radius:99px;background:var(--teal-soft);color:var(--teal);white-space:nowrap}
+
+/* estimator */
+.est{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start}
+@media (max-width:900px){.est{grid-template-columns:1fr}}
+.panel{background:var(--sheet);border:1px solid var(--rule);border-radius:10px;padding:28px;display:grid;gap:22px;min-width:0}
+.field{display:grid;gap:8px}
+.field label,.legend{font:600 14px var(--f-body)}
+.field .hint{font-size:13px;color:var(--ink-2)}
+select,input[type=number]{font:inherit;padding:11px 12px;border-radius:6px;border:1.5px solid var(--rule);background:var(--paper);color:var(--ink);width:100%}
+.range-row{display:flex;align-items:center;gap:14px}
+.range-row input{flex:1;accent-color:var(--teal)}
+.range-row output{font:500 15px var(--f-mono);min-width:72px;text-align:right}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:inline-block;padding:8px 12px;border:1.5px solid var(--rule);border-radius:6px;font-size:14px;cursor:pointer;background:var(--paper)}
+.chip input:checked+span{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.chip input:focus-visible+span{outline:3px solid var(--teal);outline-offset:2px}
+.toggle{display:flex;gap:10px;align-items:flex-start;font-size:14px}
+.toggle input{margin-top:4px;accent-color:var(--teal)}
+
+.result{position:sticky;top:90px;background:var(--ink);color:var(--paper);border-radius:10px;padding:28px;display:grid;gap:18px}
+.result .lbl{font:500 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+.result .range{font:800 clamp(34px,5vw,50px)/1 var(--f-display);letter-spacing:-.03em}
+.result .net{font-size:14px;opacity:.85}
+.bars{display:grid;gap:9px}
+.bar{display:grid;grid-template-columns:112px 1fr 64px;gap:10px;align-items:center;font-size:13px}
+.bar .track{height:8px;background:rgba(127,127,127,.28);border-radius:4px;overflow:hidden}
+.bar .fill{height:100%;background:var(--mark);border-radius:4px;transition:width .35s ease}
+.bar .v{font-family:var(--f-mono);text-align:right}
+.result .disc{font-size:12px;opacity:.7;line-height:1.5}
+.result .btn{background:var(--mark);color:var(--mark-ink);border-color:var(--mark);justify-content:center}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:2px solid var(--ink)}
+.steps li{list-style:none;padding:22px 18px 0 0;display:grid;gap:10px;align-content:start}
+.steps .n{font:500 13px var(--f-mono);color:var(--teal)}
+.steps p{font-size:15px;color:var(--ink-2)}
+.steps .dur{font:500 12px var(--f-mono);color:var(--ink-2)}
+ol.steps{margin:0;padding:0}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr;row-gap:28px}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* terms */
+.terms{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.terms>div{background:var(--sheet);padding:26px;display:grid;gap:8px;align-content:start}
+.terms .k{font:800 34px/1 var(--f-display);letter-spacing:-.02em}
+.terms p{font-size:15px;color:var(--ink-2)}
+@media (max-width:820px){.terms{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.terms{grid-template-columns:1fr}}
+
+/* rights check */
+.check{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:start}
+@media (max-width:860px){.check{grid-template-columns:1fr}}
+.qlist{display:grid;gap:0;background:var(--sheet);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.q{display:grid;grid-template-columns:1fr auto;gap:16px;padding:18px 22px;border-bottom:1px solid var(--rule);align-items:center}
+.q:last-child{border-bottom:0}
+.q p{font-size:15px}.q small{display:block;color:var(--ink-2);font-size:13px;margin-top:3px}
+.yn{display:flex;border:1.5px solid var(--rule);border-radius:6px;overflow:hidden}
+.yn button{font:600 13px var(--f-body);padding:8px 14px;border:0;background:transparent;color:var(--ink-2);cursor:pointer}
+.yn button[aria-pressed="true"].y{background:var(--ok);color:#fff}
+.yn button[aria-pressed="true"].n{background:var(--bad);color:#fff}
+.verdict{background:var(--sheet);border:1px solid var(--rule);border-radius:10px;padding:26px;display:grid;gap:14px;position:sticky;top:90px}
+.verdict .state{display:inline-flex;align-self:start;justify-self:start;font:600 13px var(--f-mono);padding:6px 10px;border-radius:6px}
+.state.ready{background:var(--ok);color:#fff}.state.fix{background:var(--warn);color:#fff}.state.stop{background:var(--bad);color:#fff}
+.verdict ul{margin:0;padding-left:18px;font-size:14px;color:var(--ink-2);display:grid;gap:6px}
+
+/* security */
+.sec{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media (max-width:760px){.sec{grid-template-columns:1fr}}
+.sec article{border-top:2px solid var(--ink);padding-top:18px;display:grid;gap:8px}
+.sec p{color:var(--ink-2);font-size:15px}
+.pipeline{margin-top:36px;overflow-x:auto;border:1px solid var(--rule);border-radius:10px;background:var(--sheet);padding:24px}
+.pipe{display:flex;align-items:stretch;gap:0;min-width:780px}
+.pipe div{flex:1;padding:14px;border:1.5px solid var(--rule);border-radius:6px;font-size:13px;background:var(--paper)}
+.pipe div b{display:block;font:600 14px var(--f-body);margin-bottom:4px}
+.pipe .arrow{flex:0 0 28px;border:0;background:none;display:grid;place-items:center;color:var(--ink-2);padding:0}
+.laws{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+
+/* verticals */
+.vert{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--rule)}
+.vert div{padding:18px 16px 18px 0;border-bottom:1px solid var(--rule);display:grid;gap:4px}
+.vert b{font-family:var(--f-display);font-size:18px}
+.vert span{font-size:14px;color:var(--ink-2)}
+@media (max-width:820px){.vert{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.vert{grid-template-columns:1fr}}
+
+/* buyers */
+.buyers{background:var(--ink);color:var(--paper);border-radius:14px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.buyers .eyebrow{color:var(--mark)}
+.buyers p,.buyers li{color:var(--paper);opacity:.85}
+.buyers ul{margin:0;padding-left:18px;display:grid;gap:10px}
+.sheetcard{background:var(--sheet);color:var(--ink);border-radius:8px;padding:20px;font:13px/1.7 var(--f-mono);min-width:0;overflow-x:auto}
+.sheetcard .row{display:flex;justify-content:space-between;gap:16px;border-bottom:1px dashed var(--rule);padding-block:3px}
+.sheetcard .row span:first-child{color:var(--ink-2)}
+@media (max-width:860px){.buyers{grid-template-columns:1fr}}
+
+/* faq */
+details{border-bottom:1px solid var(--rule);padding-block:18px}
+summary{cursor:pointer;font:700 18px var(--f-display);list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-family:var(--f-mono);color:var(--teal)}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:var(--ink-2);max-width:72ch}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+@media (max-width:820px){.contact{grid-template-columns:1fr}}
+.copybox{display:flex;gap:8px;align-items:center;background:var(--sheet);border:1px solid var(--rule);border-radius:8px;padding:10px 10px 10px 16px;flex-wrap:wrap}
+.copybox code{font:500 16px var(--f-mono);flex:1;min-width:0;word-break:break-all}
+.copybox button{font:600 13px var(--f-body);padding:9px 14px;border-radius:6px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+
+footer.site{border-top:1px solid var(--rule);padding-block:40px 60px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:13px;color:var(--ink-2)}
+footer.site .cols{display:flex;gap:40px;flex-wrap:wrap}
+footer.site .cols div{display:grid;gap:6px}
+footer.site b{color:var(--ink);font-size:13px}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+.trace li{animation:rise .5s ease both}
+.trace li:nth-child(2){animation-delay:.08s}.trace li:nth-child(3){animation-delay:.16s}.trace li:nth-child(4){animation-delay:.24s}.trace li:nth-child(5){animation-delay:.32s}
+@keyframes rise{from{transform:translateY(6px)}to{transform:none}}
+</style>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top"><i aria-hidden="true"></i><span><b>Tacit</b></span></a>
+    <div class="navlinks">
+      <a href="#sources">What sells</a>
+      <a href="#estimate">Valuation</a>
+      <a href="#how">How it works</a>
+      <a href="#security">Security</a>
+      <a href="#buyers">For AI labs</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="btn" href="#estimate">Value my data</a>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+
+  <div class="hero">
+    <div>
+      <span class="eyebrow">Licensed operational data for AI training</span>
+      <h1>The AI labs already read the internet. They haven't read <span class="mark">how your team works.</span></h1>
+      <p class="lede">Tacit licenses the record of your company's expert work — tickets, ledgers, code reviews, lab notes, decision threads — to frontier AI labs. We check your rights, strip every identity, package it to a buyer's spec, and pay you when the license is signed.</p>
+      <div class="actions">
+        <a class="btn" href="#estimate">Estimate my payout in 60 seconds</a>
+        <a class="btn ghost" href="#rights">Can I legally sell this?</a>
+      </div>
+      <p class="fine">No upfront fees. Nothing leaves your systems until you approve a named buyer.</p>
+    </div>
+
+    <figure class="trace" aria-label="Example of a de-identified work trace">
+      <header><span>trace · month-end close · accounting</span><span>de-identified ✓</span></header>
+      <ol>
+        <li><span class="t">09:14</span><span>Variance flagged on supplier <span class="redact">Hollis Packaging Ltd</span>: invoice £18,400 vs PO £16,900.<span class="why">Trigger</span></span></li>
+        <li><span class="t">09:31</span><span>Pulled 3 prior invoices. Found freight surcharge added since Q2 without contract amendment.<span class="why">Evidence gathered</span></span></li>
+        <li><span class="t">10:02</span><span><span class="mark">Decided to accrue PO value only and hold £1,500 in dispute</span> rather than book in full.<span class="why">Judgment call</span></span></li>
+        <li><span class="t">10:20</span><span>Emailed <span class="redact">j.okafor@hollis</span> requesting amended terms; set 14-day review.<span class="why">Action</span></span></li>
+        <li><span class="t">11:45</span><span>Controller <span class="redact">R. Menon</span> approved the partial accrual.<span class="why">Sign-off</span></span></li>
+      </ol>
+      <footer><span>5 steps · 2 hrs 31 min</span><span>identities removed: 3</span></footer>
+    </figure>
+  </div>
+
+  <section>
+    <div class="gap">
+      <div>
+        <span class="eyebrow">Public data</span>
+        <p class="big">Used up</p>
+        <p>Web pages, forums and open repositories have been scraped and trained on many times over. More of it adds little.</p>
+      </div>
+      <div>
+        <span class="eyebrow">Your private work record</span>
+        <p class="big">Unscraped</p>
+        <p>What labs still lack is the full path experts take from a task to a finished result:</p>
+        <ul><li>the steps they took, in order</li><li>the judgment calls and why</li><li>the checks before anything was signed off</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="sources">
+    <div class="sec-head">
+      <span class="eyebrow">What sells</span>
+      <h2>Five kinds of data labs pay for</h2>
+      <p class="lede">We connect read-only. The value is in history and decisions, so older workspaces with long threads are usually worth more than large ones with thin activity.</p>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Source</th><th>What labs want from it</th><th>Typical systems</th><th>Value signal</th></tr></thead>
+        <tbody>
+          <tr><td>Messages</td><td>Coordination threads where a decision was reached and the reasoning was written down.</td><td><span class="tools">Slack · Teams · Gmail · Outlook</span></td><td><span class="pill">long decision threads</span></td></tr>
+          <tr><td>Code</td><td>Repositories with full history: commits, reviews, incident fixes, migration notes.</td><td><span class="tools">GitHub · GitLab · Bitbucket · Jira</span></td><td><span class="pill">review comments</span></td></tr>
+          <tr><td>Documents</td><td>SOPs, reports, memos, specs, contract drafts with revisions.</td><td><span class="tools">Drive · SharePoint · Notion · Confluence</span></td><td><span class="pill">version history</span></td></tr>
+          <tr><td>Records</td><td>Ledgers, pipelines, orders and invoices tied to the actions taken on them.</td><td><span class="tools">Salesforce · HubSpot · Xero · QuickBooks · Tally · SAP</span></td><td><span class="pill">exceptions + fixes</span></td></tr>
+          <tr><td>Tasks</td><td>Tickets captured end to end: brief, steps, back-and-forth, resolution.</td><td><span class="tools">Zendesk · Freshdesk · ServiceNow · Asana</span></td><td><span class="pill">resolved with notes</span></td></tr>
+          <tr><td>Domain systems</td><td>The specialist record only your industry keeps: lab notebooks, test runs, design files, QC logs.</td><td><span class="tools">LIMS · ELN · EDA/CAD · MES · QMS</span></td><td><span class="pill">highest per-record value</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="estimate">
+    <div class="sec-head">
+      <span class="eyebrow">Valuation</span>
+      <h2>What could your data be worth?</h2>
+      <p class="lede">Answer six questions. The estimate runs in your browser and isn't saved or sent anywhere.</p>
+    </div>
+    <div class="est">
+      <form class="panel" id="estForm" onsubmit="return false">
+        <div class="field">
+          <label for="industry">Industry</label>
+          <select id="industry">
+            <option value="1.30">Accounting & bookkeeping</option>
+            <option value="1.50">Legal</option>
+            <option value="1.75">Chemistry & lab sciences</option>
+            <option value="1.85">Semiconductors & electronics</option>
+            <option value="1.60">Healthcare & clinical (extra review)</option>
+            <option value="1.45">Financial services</option>
+            <option value="1.40">Insurance</option>
+            <option value="1.20" selected>Software</option>
+            <option value="1.15">Manufacturing</option>
+            <option value="1.00">Logistics & packaging</option>
+            <option value="0.95">Customer support / BPO</option>
+            <option value="1.05">Construction & engineering</option>
+            <option value="1.00">Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="heads">Team size</label>
+          <div class="range-row"><input type="range" id="heads" min="5" max="5000" step="5" value="120"><output id="headsOut" class="num">120</output></div>
+        </div>
+        <div class="field">
+          <label for="years">Years of history in your tools</label>
+          <div class="range-row"><input type="range" id="years" min="1" max="25" value="6"><output id="yearsOut" class="num">6 yrs</output></div>
+        </div>
+        <div class="field">
+          <span class="legend">Sources you could connect</span>
+          <div class="chips" id="srcChips">
+            <label class="chip"><input type="checkbox" value="Messages" data-w="0.25" checked><span>Messages</span></label>
+            <label class="chip"><input type="checkbox" value="Code" data-w="0.30"><span>Code</span></label>
+            <label class="chip"><input type="checkbox" value="Documents" data-w="0.20" checked><span>Documents</span></label>
+            <label class="chip"><input type="checkbox" value="Records" data-w="0.22" checked><span>Records</span></label>
+            <label class="chip"><input type="checkbox" value="Tasks" data-w="0.25"><span>Tasks</span></label>
+            <label class="chip"><input type="checkbox" value="Domain systems" data-w="0.45"><span>Domain systems</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="region">Where most of your data subjects are</label>
+          <select id="region">
+            <option value="1">India (DPDP Act)</option>
+            <option value="1">EU / UK (GDPR)</option>
+            <option value="1">United States</option>
+            <option value="1">Elsewhere</option>
+          </select>
+          <span class="hint">Doesn't change the price. It decides which consent and de-identification rules we apply.</span>
+        </div>
+        <label class="toggle"><input type="checkbox" id="experts"><span>Our experts could annotate samples (explain decisions) for a consulting fee. <span class="hint">Usually adds 20–40%.</span></span></label>
+      </form>
+
+      <aside class="result" aria-live="polite">
+        <span class="lbl">Estimated licence value</span>
+        <div class="range num" id="rangeOut">$0</div>
+        <div class="net num" id="netOut"></div>
+        <div class="bars" id="bars"></div>
+        <p class="disc">A rough range from public deal benchmarks, not an offer. Final price depends on volume after de-identification, data quality, exclusivity and buyer demand. Some datasets don't sell.</p>
+        <a class="btn" href="#contact">Book a 20-minute valuation call</a>
+      </aside>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="sec-head">
+      <span class="eyebrow">How it works</span>
+      <h2>From first call to payout</h2>
+    </div>
+    <ol class="steps">
+      <li><span class="n">1 · Value</span><h3>Scope call</h3><p>We map your systems, confirm what's licensable and give a price range in writing. Mutual NDA signed on the call.</p><span class="dur">day 1</span></li>
+      <li><span class="n">2 · Rights</span><h3>Rights review</h3><p>We check customer contracts, employee notices and sector rules. If you can't license it, we tell you and stop.</p><span class="dur">days 2–7</span></li>
+      <li><span class="n">3 · Connect</span><h3>Read-only access</h3><p>Scoped, revocable connection or a secure export. Data lands in an isolated, encrypted workspace.</p><span class="dur">days 5–10</span></li>
+      <li><span class="n">4 · Package</span><h3>De-identify & package</h3><p>Automated plus human redaction, quality scoring and a datasheet. You approve the redacted preview.</p><span class="dur">weeks 2–4</span></li>
+      <li><span class="n">5 · Sell</span><h3>Licence & payout</h3><p>You approve each buyer. Funds go to escrow on signing and release to you on the buyer's acceptance.</p><span class="dur">weeks 4–8</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Your terms</span>
+      <h2>You stay in control of every sale</h2>
+    </div>
+    <div class="terms">
+      <div><span class="k num">80%</span><h3>Of every licence to you</h3><p>We take a 20% success fee. No setup, review or listing fees.</p></div>
+      <div><span class="k">Veto</span><h3>Approve each buyer</h3><p>See the buyer's name and intended use before anything is shared. Say no and nothing moves.</p></div>
+      <div><span class="k">Train-only</span><h3>Narrow licence</h3><p>Model training and evaluation only. No resale, no attempts to re-identify, no publishing raw records.</p></div>
+      <div><span class="k">Escrow</span><h3>Paid before delivery</h3><p>The buyer funds escrow when the licence is signed, so you're never chasing an invoice.</p></div>
+      <div><span class="k">Non-excl.</span><h3>Sell more than once</h3><p>Non-exclusive by default. Exclusive deals are priced at a premium if you want one.</p></div>
+      <div><span class="k">Delete</span><h3>Written proof</h3><p>We delete our working copy after delivery and send you a deletion certificate.</p></div>
+    </div>
+  </section>
+
+  <section id="rights">
+    <div class="sec-head">
+      <span class="eyebrow">Rights check</span>
+      <h2>Can you legally license this data?</h2>
+      <p class="lede">The most common reason a deal dies is a rights problem found late. Answer honestly; this stays in your browser.</p>
+    </div>
+    <div class="check">
+      <div class="qlist" id="qlist"></div>
+      <aside class="verdict" aria-live="polite">
+        <span class="state" id="vState">Answer the questions</span>
+        <h3 id="vHead">Your readiness</h3>
+        <ul id="vList"></ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="security">
+    <div class="sec-head">
+      <span class="eyebrow">Security & privacy</span>
+      <h2>Built so a privacy lawyer can say yes</h2>
+    </div>
+    <div class="sec">
+      <article><h3>Read-only, scoped, revocable</h3><p>We request the narrowest access each system allows, limited to the channels, folders or date ranges you pick. Revoke it in one click from your admin console.</p></article>
+      <article><h3>Two-pass de-identification</h3><p>Automated detection of names, emails, phone numbers, IDs, addresses and account numbers, then human review of a sample from every batch. Names are replaced with consistent placeholders so the work still reads correctly.</p></article>
+      <article><h3>Isolated processing</h3><p>Each client's data sits in its own encrypted workspace with access logging. Raw data never goes to a buyer. Buyers see redacted previews before purchase.</p></article>
+      <article><h3>Contracts that hold up</h3><p>Mutual NDA, data processing agreement, and a licence that limits use to training and evaluation, bans re-identification and requires deletion on termination.</p></article>
+    </div>
+    <div class="pipeline">
+      <div class="pipe" role="img" aria-label="Processing pipeline from your systems to the buyer">
+        <div><b>Your systems</b>Read-only connector or encrypted export</div><div class="arrow">→</div>
+        <div><b>Isolated workspace</b>Encrypted, per-client, logged</div><div class="arrow">→</div>
+        <div><b>De-identify</b>Automated scan + human QA sample</div><div class="arrow">→</div>
+        <div><b>Your approval</b>You review the redacted preview</div><div class="arrow">→</div>
+        <div><b>Buyer</b>Licensed, train-only delivery</div>
+      </div>
+    </div>
+    <div class="laws">
+      <span class="pill">India DPDP Act 2023</span><span class="pill">GDPR / UK GDPR</span><span class="pill">CCPA / CPRA</span><span class="pill">HIPAA (health data: extra review)</span><span class="pill">Employee notice templates</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Who we're looking for</span>
+      <h2>Expert work in every vertical</h2>
+      <p class="lede">We especially want specialist teams whose work never ends up on the public web.</p>
+    </div>
+    <div class="vert">
+      <div><b>Accountants</b><span>Closes, reconciliations, audits</span></div>
+      <div><b>Chemists & lab teams</b><span>Protocols, assays, QC</span></div>
+      <div><b>Chip designers</b><span>Verification, tape-out, yield</span></div>
+      <div><b>Lawyers</b><span>Diligence, drafting, filings</span></div>
+      <div><b>Software engineers</b><span>Reviews, incidents, migrations</span></div>
+      <div><b>Insurance adjusters</b><span>Claims, underwriting, appeals</span></div>
+      <div><b>Financial analysts</b><span>Models, memos, forecasts</span></div>
+      <div><b>Support leads</b><span>Escalations, QA, macros</span></div>
+      <div><b>Operations managers</b><span>SOPs, scheduling, vendors</span></div>
+      <div><b>Manufacturing engineers</b><span>Process changes, root cause</span></div>
+      <div><b>Engineers & builders</b><span>Bids, specs, site reports</span></div>
+      <div><b>Recruiters</b><span>Screens, scorecards, offers</span></div>
+    </div>
+  </section>
+
+  <section id="buyers">
+    <div class="buyers">
+      <div style="display:grid;gap:18px;align-content:start">
+        <span class="eyebrow">For AI labs</span>
+        <h2>Specialist data with clean title</h2>
+        <p>Every listing ships with a datasheet: source, volume, time span, de-identification method, licence terms and a rights attestation from the seller.</p>
+        <ul>
+          <li>Redacted previews before you commit</li>
+          <li>Custom collection to your spec by vertical, task type or language</li>
+          <li>Expert annotation of decisions on request</li>
+          <li>Standard train-only licence, escrow-backed</li>
+        </ul>
+        <div><a class="btn" style="background:var(--mark);color:var(--mark-ink);border-color:var(--mark)" href="#contact">Request the catalogue</a></div>
+      </div>
+      <div class="sheetcard" aria-label="Example datasheet">
+        <div style="font-weight:500;margin-bottom:8px">DATASHEET · example listing</div>
+        <div class="row"><span>vertical</span><span>accounting · mid-market</span></div>
+        <div class="row"><span>sources</span><span>ledger, tickets, email threads</span></div>
+        <div class="row"><span>span</span><span>2018–2026</span></div>
+        <div class="row"><span>traces</span><span class="num">41,200</span></div>
+        <div class="row"><span>avg steps / trace</span><span class="num">7.4</span></div>
+        <div class="row"><span>language</span><span>en-GB, en-IN</span></div>
+        <div class="row"><span>de-id method</span><span>auto + 5% human QA</span></div>
+        <div class="row"><span>residual PII rate</span><span class="num">&lt; 0.1% on audit</span></div>
+        <div class="row"><span>licence</span><span>non-exclusive · train/eval</span></div>
+        <div class="row"><span>rights</span><span>seller attestation + review</span></div>
+        <div style="margin-top:10px;color:var(--ink-2)">Illustrative example, not a live listing.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="sec-head"><span class="eyebrow">Questions</span><h2>What sellers ask first</h2></div>
+    <details><summary>Will my customers' or employees' data end up in an AI model?</summary><p>Not in identifiable form. We remove names, contact details, IDs and account numbers before anything leaves processing, and you review a redacted preview before any sale. Where the law requires notice to employees or customers, we give you templates and wait until it's done.</p></details>
+    <details><summary>How fast do I get paid?</summary><p>Most deals take four to eight weeks from first call to payout, depending on the rights review and the buyer's acceptance testing. Funds are held in escrow from signing, so payment is released as soon as the buyer accepts delivery.</p></details>
+    <details><summary>Who are the buyers?</summary><p>AI labs and companies training specialist models. We name the buyer and their intended use before you approve a sale. We don't sell to data resellers.</p></details>
+    <details><summary>What if my data turns out not to be sellable?</summary><p>Then you pay nothing. Our fee only applies to licences that close.</p></details>
+    <details><summary>Does this expose trade secrets?</summary><p>You choose the scope. Pricing, product roadmaps, source code or specific folders can be excluded entirely, and we redact named products and clients on request.</p></details>
+    <details><summary>Can I sell the same data to more than one lab?</summary><p>Yes, by default licences are non-exclusive. If a buyer wants exclusivity, they pay a premium and you decide whether to accept it.</p></details>
+    <details><summary>Do my employees get anything?</summary><p>If your experts annotate decisions, they are paid a consulting rate per hour on top of the licence. Many sellers also share part of the licence with the team.</p></details>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <div style="display:grid;gap:16px">
+        <span class="eyebrow">Get started</span>
+        <h2>Book a 20-minute valuation call</h2>
+        <p class="lede">Bring a list of the tools your team uses. We'll tell you on the call whether it's sellable and roughly what it's worth.</p>
+      </div>
+      <div style="display:grid;gap:12px">
+        <div class="copybox"><code id="mail">hello@tacit.exchange</code><button type="button" id="copyBtn">Copy</button></div>
+        <p style="font-size:13px;color:var(--ink-2)">Referrals: introduce a company that closes a licence and receive 10% of our fee.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div style="display:grid;gap:8px"><a class="logo" href="#top"><i aria-hidden="true"></i><b>Tacit</b></a><span>Licensed operational data for AI training.</span><span>© 2026 Tacit Exchange</span></div>
+    <div class="cols">
+      <div><b>Sellers</b><a href="#estimate">Valuation</a><a href="#rights">Rights check</a><a href="#how">How it works</a></div>
+      <div><b>Buyers</b><a href="#buyers">Catalogue</a><a href="#security">Security</a></div>
+      <div><b>Legal</b><span>Privacy policy</span><span>Seller agreement</span><span>Licence terms</span></div>
+    </div>
+  </footer>
+</main>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const fmt=n=>n>=1e6?'$'+(n/1e6).toFixed(n>=1e7?0:1)+'M':'$'+Math.round(n/1e3)+'K';
+
+  function estimate(){
+    const ind=parseFloat($('industry').value);
+    const heads=+$('heads').value, years=+$('years').value;
+    $('headsOut').textContent=heads.toLocaleString();
+    $('yearsOut').textContent=years+' yrs';
+    const srcs=[...document.querySelectorAll('#srcChips input:checked')].map(i=>({name:i.value,w:+i.dataset.w}));
+    const base=6500*Math.pow(heads,0.6)*ind*(1+Math.min(years,20)*0.045);
+    const parts=srcs.map(s=>({name:s.name,v:base*s.w}));
+    let mid=parts.reduce((a,p)=>a+p.v,0);
+    if($('experts').checked){mid*=1.3}
+    const bars=$('bars');
+    if(!srcs.length){$('rangeOut').textContent='Pick a source';$('netOut').textContent='';bars.innerHTML='';return}
+    const lo=Math.max(10000,mid*0.5), hi=Math.max(25000,mid*1.4);
+    $('rangeOut').textContent=fmt(lo)+' – '+fmt(hi);
+    $('netOut').textContent='You keep '+fmt(lo*0.8)+' – '+fmt(hi*0.8)+' after our 20% fee';
+    const max=Math.max(...parts.map(p=>p.v));
+    bars.innerHTML=parts.sort((a,b)=>b.v-a.v).map(p=>`<div class="bar"><span>${p.name}</span><div class="track"><div class="fill" style="width:${(p.v/max*100).toFixed(0)}%"></div></div><span class="v">${fmt(p.v)}</span></div>`).join('');
+  }
+  document.getElementById('estForm').addEventListener('input',estimate);
+  estimate();
+
+  const Qs=[
+    {q:'Does your company own the systems and the data in them?',s:'Not a client\'s or a parent company\'s data held on their behalf.',fix:'Confirm ownership; client-held data needs client consent.',hard:true},
+    {q:'Do your customer contracts allow internal data to be used beyond the service?',s:'Look for confidentiality and "use of data" clauses.',fix:'Exclude data covered by restrictive customer contracts.'},
+    {q:'Have employees been told their work records may be licensed?',s:'Required or advisable under DPDP, GDPR and many employment laws.',fix:'Send an employee notice before access (we provide a template).'},
+    {q:'Is any of it health, biometric or children\'s data?',s:'Answer "Yes" if any of it is.',fix:'Sensitive categories need specialist review or exclusion.',invert:true},
+    {q:'Is your board or leadership aware and on side?',s:'Deals stall when this comes up late.',fix:'Get written sign-off from a director.'},
+    {q:'Can you exclude trade secrets you don\'t want shared?',s:'Pricing, roadmaps, specific clients, source code.',fix:'List exclusions before connection.'}
+  ];
+  const ans={};
+  const ql=$('qlist');
+  ql.innerHTML=Qs.map((x,i)=>`<div class="q"><p>${x.q}<small>${x.s}</small></p><div class="yn" role="group" aria-label="Answer"><button type="button" class="y" data-i="${i}" data-a="y" aria-pressed="false">Yes</button><button type="button" class="n" data-i="${i}" data-a="n" aria-pressed="false">No</button></div></div>`).join('');
+  ql.addEventListener('click',e=>{
+    const b=e.target.closest('button[data-i]');if(!b)return;
+    ans[b.dataset.i]=b.dataset.a;
+    b.parentElement.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
+    verdict();
+  });
+  function verdict(){
+    const n=Object.keys(ans).length, st=$('vState'), list=$('vList');
+    const problems=Qs.map((x,i)=>({x,i})).filter(({x,i})=>ans[i]&&((x.invert&&ans[i]==='y')||(!x.invert&&ans[i]==='n')));
+    const hard=problems.some(p=>p.x.hard);
+    list.innerHTML=problems.map(p=>`<li>${p.x.fix}</li>`).join('');
+    if(n<Qs.length){st.className='state';st.textContent=n+' of '+Qs.length+' answered'}
+    if(hard){st.className='state stop';st.textContent='Stop: ownership unclear';$('vHead').textContent='Sort out ownership first'}
+    else if(problems.length){st.className='state fix';st.textContent=problems.length+' to fix';$('vHead').textContent='Fixable before a sale'}
+    else if(n===Qs.length){st.className='state ready';st.textContent='Ready to list';$('vHead').textContent='Good to book a call';list.innerHTML='<li>Bring this checklist to your valuation call.</li>'}
+    else{$('vHead').textContent='Your readiness'}
+  }
+  verdict();
+
+  $('copyBtn').addEventListener('click',()=>{
+    const t=$('mail').textContent;
+    const done=()=>{$('copyBtn').textContent='Copied'};
+    try{navigator.clipboard.writeText(t).then(done).catch(sel)}catch(e){sel()}
+    function sel(){const r=document.createRange();r.selectNodeContents($('mail'));const s=getSelection();s.removeAllRanges();s.addRange(r);$('copyBtn').textContent='Selected'}
+  });
+})();
+</script>
+
+</body></html>

@@ -10,63 +10,74 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const links = [
-    { href: '/sell', label: 'What sells' },
+    { href: '/sell', label: 'What Sells' },
     { href: '/valuation', label: 'Valuation' },
-    { href: '/rights-check', label: 'Rights check' },
-    { href: '/how-it-works', label: 'How it works' },
+    { href: '/rights-check', label: 'Rights Check' },
+    { href: '/how-it-works', label: 'Pipeline' },
     { href: '/security', label: 'Security' },
-    { href: '/buyers', label: 'For AI labs' },
+    { href: '/buyers', label: 'AI Labs' },
     { href: '/pricing', label: 'Pricing' },
     { href: '/faq', label: 'FAQ' },
   ];
 
   return (
-    <nav className="site-nav" aria-label="Main Navigation">
-      <div className="wrap">
-        <Link href="/" className="logo" onClick={() => setMobileOpen(false)}>
-          <i aria-hidden="true" />
-          <span><b>Tacit</b></span>
-        </Link>
-
-        <div className={`navlinks ${mobileOpen ? 'open' : ''}`}>
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={pathname === link.href ? 'active' : ''}
-              onClick={() => setMobileOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            href="/contact"
-            className={pathname === '/contact' ? 'active' : ''}
-            onClick={() => setMobileOpen(false)}
-          >
-            Contact
-          </Link>
+    <>
+      <div className="top-status-ticker">
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <span className="live-pulse-dot" />
+          <span>TACIT PROTOCOL ACTIVE · 18.4M TOKENS CLEARED UNDER CLEAN TITLE</span>
         </div>
-
-        <div className="nav-actions" style={{ marginLeft: 'auto' }}>
-          <ThemeToggle />
-          <Link href="/valuation" className="btn small" style={{ display: 'none', minWidth: 'auto' }}>
-            Value data
-          </Link>
-          <Link href="/valuation" className="btn small">
-            Value my data
-          </Link>
-          <button
-            type="button"
-            className="mobile-toggle"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-expanded={mobileOpen}
-            aria-label="Toggle navigation menu"
-          >
-            {mobileOpen ? '✕ Close' : '☰ Menu'}
-          </button>
+        <div style={{ display: 'flex', gap: '16px' }}>
+          <span style={{ color: 'var(--green-verified)' }}>80% DIRECT SELLER SHARE</span>
+          <span style={{ opacity: 0.6 }}>TRAIN-ONLY NON-DISTRIBUTIVE</span>
         </div>
       </div>
-    </nav>
+
+      <header className="site-nav" aria-label="Main Navigation">
+        <div className="nav-inner">
+          <Link href="/" className="nav-brand" onClick={() => setMobileOpen(false)}>
+            <div className="brand-icon-mark">T</div>
+            <span>Tacit</span>
+          </Link>
+
+          <nav className={`nav-links ${mobileOpen ? 'open' : ''}`}>
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={pathname === link.href ? 'active' : ''}
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="nav-cta-cluster">
+            <ThemeToggle />
+            <Link href="/valuation" className="btn-primary" style={{ padding: '8px 18px', fontSize: '13px' }}>
+              Value Data
+            </Link>
+            <button
+              type="button"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              style={{
+                display: 'none',
+                background: 'transparent',
+                border: '1px solid var(--border-subtle)',
+                color: 'var(--text-primary)',
+                padding: '6px 10px',
+                borderRadius: '8px',
+                cursor: 'pointer',
+              }}
+              className="mobile-nav-btn"
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? '✕' : '☰'}
+            </button>
+          </div>
+        </div>
+      </header>
+    </>
   );
 }

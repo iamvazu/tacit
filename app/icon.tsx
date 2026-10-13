@@ -14,19 +14,16 @@ export default function Icon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: '#0F1A24',
-          borderRadius: '6px',
+          backgroundColor: '#141011',
+          borderRadius: '4px',
+          border: '1.5px solid #F59E0B',
+          color: '#FFFFFF',
+          fontWeight: 900,
+          fontSize: '20px',
+          fontFamily: 'sans-serif',
         }}
       >
-        {/* Redaction bar logo */}
-        <div
-          style={{
-            width: '18px',
-            height: '7px',
-            backgroundColor: '#F5D547',
-            borderRadius: '2px',
-          }}
-        />
+        T
       </div>
     ),
     { ...size }

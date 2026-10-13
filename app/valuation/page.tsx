@@ -29,33 +29,33 @@ export default function ValuationPage() {
         <ValuationForm />
       </section>
 
-      <section style={{ background: 'var(--sheet)', border: '1px solid var(--rule)', borderRadius: '12px', padding: '32px' }}>
-        <h3 style={{ fontSize: '20px', marginBottom: '12px' }}>How We Value Your Firm’s Records</h3>
-        <p style={{ color: 'var(--ink-2)', lineHeight: 1.6, marginBottom: '20px', fontSize: '15px' }}>
+      <section className="tactical-card" style={{ padding: '36px' }}>
+        <h3 style={{ fontSize: '22px', fontWeight: 800, color: '#141011', marginBottom: '10px' }}>How We Value Your Firm’s Records</h3>
+        <p style={{ color: '#4a4646', lineHeight: 1.6, marginBottom: '24px', fontSize: '15px' }}>
           Our estimates are based on actual closed licensing transactions for established US firms. Four main factors determine the offer:
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
-          <div>
-            <strong>1. Your Industry:</strong>
-            <p style={{ fontSize: '14px', color: 'var(--ink-2)', marginTop: '4px', lineHeight: 1.5 }}>
+          <div className="tactical-card" style={{ padding: '20px', background: '#faf9f6' }}>
+            <strong style={{ color: '#141011', fontSize: '15px', display: 'block' }}>1. Your Industry:</strong>
+            <p style={{ fontSize: '14px', color: '#4a4646', marginTop: '6px', lineHeight: 1.5, margin: '6px 0 0' }}>
               Specialized industries (accounting, logistics, engineering, healthcare, trade contracting) command the highest offers because real-world procedural knowledge is scarce.
             </p>
           </div>
-          <div>
-            <strong>2. Years in Business:</strong>
-            <p style={{ fontSize: '14px', color: 'var(--ink-2)', marginTop: '4px', lineHeight: 1.5 }}>
+          <div className="tactical-card" style={{ padding: '20px', background: '#faf9f6' }}>
+            <strong style={{ color: '#141011', fontSize: '15px', display: 'block' }}>2. Years in Business:</strong>
+            <p style={{ fontSize: '14px', color: '#4a4646', marginTop: '6px', lineHeight: 1.5, margin: '6px 0 0' }}>
               Firms with 3 to 15+ years of archived emails, projects, and workpapers provide deep historical context that cannot be recreated today.
             </p>
           </div>
-          <div>
-            <strong>3. Number of Employees:</strong>
-            <p style={{ fontSize: '14px', color: 'var(--ink-2)', marginTop: '4px', lineHeight: 1.5 }}>
+          <div className="tactical-card" style={{ padding: '20px', background: '#faf9f6' }}>
+            <strong style={{ color: '#141011', fontSize: '15px', display: 'block' }}>3. Number of Employees:</strong>
+            <p style={{ fontSize: '14px', color: '#4a4646', marginTop: '6px', lineHeight: 1.5, margin: '6px 0 0' }}>
               More team members mean more everyday workflows, tickets, and problem-solving threads captured across your software systems.
             </p>
           </div>
-          <div>
-            <strong>4. Connected Systems:</strong>
-            <p style={{ fontSize: '14px', color: 'var(--ink-2)', marginTop: '4px', lineHeight: 1.5 }}>
+          <div className="tactical-card" style={{ padding: '20px', background: '#faf9f6' }}>
+            <strong style={{ color: '#141011', fontSize: '15px', display: 'block' }}>4. Connected Systems:</strong>
+            <p style={{ fontSize: '14px', color: '#4a4646', marginTop: '6px', lineHeight: 1.5, margin: '6px 0 0' }}>
               Records that show how decisions were made from start to finish (e.g. email threads combined with accounting invoices or job tickets) are worth the most.
             </p>
           </div>

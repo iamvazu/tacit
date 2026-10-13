@@ -6,9 +6,10 @@ interface ContactFormProps {
   emailAddress?: string;
 }
 
-export default function ContactForm({ emailAddress = 'YOUR_EMAIL' }: ContactFormProps) {
+export default function ContactForm({ emailAddress = 'hello@tacit.exchange' }: ContactFormProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [company, setCompany] = useState('');
   const [subject, setSubject] = useState('General inquiry');
   const [message, setMessage] = useState('');
@@ -41,6 +42,7 @@ export default function ContactForm({ emailAddress = 'YOUR_EMAIL' }: ContactForm
           form_type: 'contact',
           name,
           email,
+          phone,
           company,
           subject,
           message,
@@ -111,6 +113,50 @@ export default function ContactForm({ emailAddress = 'YOUR_EMAIL' }: ContactForm
             />
           </div>
 
+          {/* Quick Call Desk Banner */}
+          <div style={{
+            background: '#faf9f6',
+            border: '1.5px solid #141011',
+            borderRadius: '4px',
+            padding: '12px 16px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '12px',
+            boxShadow: '2px 2px 0px #141011',
+            margin: '12px 0 20px',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              <span style={{ fontSize: '13.5px', color: '#141011', fontWeight: 600 }}>
+                Prefer to speak with our principals directly?
+              </span>
+            </div>
+            <a
+              href="tel:+14086576116"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                color: '#141011',
+                textDecoration: 'none',
+                fontWeight: 800,
+                fontSize: '13px',
+                fontFamily: 'var(--font-mono)',
+                background: '#fef08a',
+                border: '1px solid #141011',
+                padding: '4px 10px',
+                borderRadius: '3px',
+              }}
+              title="Call (408) 657-6116"
+            >
+              📞 Call (408) 657-6116
+            </a>
+          </div>
+
           <div className="form-grid">
             <div className="field">
               <label htmlFor="ct-name">Your name *</label>
@@ -139,6 +185,17 @@ export default function ContactForm({ emailAddress = 'YOUR_EMAIL' }: ContactForm
 
           <div className="form-grid">
             <div className="field">
+              <label htmlFor="ct-phone">Your phone (optional)</label>
+              <input
+                id="ct-phone"
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="(408) 000-0000"
+              />
+            </div>
+
+            <div className="field">
               <label htmlFor="ct-company">Organization / Company</label>
               <input
                 id="ct-company"
@@ -148,21 +205,21 @@ export default function ContactForm({ emailAddress = 'YOUR_EMAIL' }: ContactForm
                 placeholder="Organization name"
               />
             </div>
+          </div>
 
-            <div className="field">
-              <label htmlFor="ct-subject">Inquiry type</label>
-              <select
-                id="ct-subject"
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-              >
-                <option value="Data Seller / Valuation">Data Seller / Valuation</option>
-                <option value="AI Lab / Buyer Inquiries">AI Lab / Buyer Inquiries</option>
-                <option value="Referral Partnership">Referral Partnership</option>
-                <option value="Legal & Privacy Rights">Legal & Privacy Rights</option>
-                <option value="General inquiry">General inquiry</option>
-              </select>
-            </div>
+          <div className="field">
+            <label htmlFor="ct-subject">Inquiry type</label>
+            <select
+              id="ct-subject"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+            >
+              <option value="Data Seller / Valuation">Data Seller / Valuation</option>
+              <option value="AI Lab / Buyer Inquiries">AI Lab / Buyer Inquiries</option>
+              <option value="Referral Partnership">Referral Partnership</option>
+              <option value="Legal & Privacy Rights">Legal & Privacy Rights</option>
+              <option value="General inquiry">General inquiry</option>
+            </select>
           </div>
 
           <div className="field">

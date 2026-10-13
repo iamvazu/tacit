@@ -15,6 +15,7 @@ export default function ValuationForm({
 }: ValuationFormProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [company, setCompany] = useState('');
   const [industry, setIndustry] = useState(initialIndustry);
   const [teamSize, setTeamSize] = useState('120');
@@ -38,6 +39,7 @@ export default function ValuationForm({
           form_type: 'valuation_call',
           name,
           email,
+          phone,
           company,
           industry,
           team_size: teamSize,
@@ -69,8 +71,33 @@ export default function ValuationForm({
           <h3 style={{ marginBottom: '8px' }}>Valuation Call Scheduled</h3>
           <p>
             Thank you, {name || 'there'}! We have received your preliminary dataset profile and valuation details ({initialRange}).
-            A Tacit principal will review your tools profile and reach out via <strong>{email}</strong> within one business day with calendar options and a standard mutual NDA.
+            One of our team members will reach out to you at <strong>{email}</strong> within <strong>24 hours</strong> with calendar options and a mutual NDA.
           </p>
+          <div style={{ marginTop: '16px' }}>
+            <a
+              href="tel:+14086576116"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                color: '#141011',
+                textDecoration: 'none',
+                fontWeight: 700,
+                fontSize: '13.5px',
+                fontFamily: 'var(--font-mono)',
+                background: '#ffffff',
+                padding: '6px 14px',
+                border: '1.5px solid #141011',
+                borderRadius: '4px',
+                boxShadow: '2px 2px 0px #141011',
+              }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              <span>Need immediate answers? Call (408) 657-6116</span>
+            </a>
+          </div>
         </div>
       </div>
     );
@@ -82,8 +109,52 @@ export default function ValuationForm({
         <span className="eyebrow">Request Your Offer</span>
         <h3 style={{ fontSize: '24px', marginTop: '6px' }}>Find out what your records are worth</h3>
         <p className="lede" style={{ fontSize: '15px', marginTop: '6px' }}>
-          Tell us about your firm. We call within one business day with your payout range. No files uploaded and zero cost to you.
+          Tell us about your firm. We call within 24 hours with your payout range. No files uploaded and zero cost to you.
         </p>
+      </div>
+
+      {/* Quick Phone Desk Banner */}
+      <div style={{
+        background: '#faf9f6',
+        border: '1.5px solid #141011',
+        borderRadius: '4px',
+        padding: '12px 16px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: '12px',
+        boxShadow: '2px 2px 0px #141011',
+        margin: '12px 0 20px',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          <span style={{ fontSize: '13.5px', color: '#141011', fontWeight: 600 }}>
+            Prefer to speak directly with an advisor?
+          </span>
+        </div>
+        <a
+          href="tel:+14086576116"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            color: '#141011',
+            textDecoration: 'none',
+            fontWeight: 800,
+            fontSize: '13px',
+            fontFamily: 'var(--font-mono)',
+            background: '#fef08a',
+            border: '1px solid #141011',
+            padding: '4px 10px',
+            borderRadius: '3px',
+          }}
+          title="Call (408) 657-6116"
+        >
+          📞 Call (408) 657-6116
+        </a>
       </div>
 
       {errorMsg && <div className="form-error">{errorMsg}</div>}
@@ -140,15 +211,26 @@ export default function ValuationForm({
         </div>
 
         <div className="field">
-          <label htmlFor="val-industry">Industry sector</label>
+          <label htmlFor="val-phone">Direct phone (optional)</label>
           <input
-            id="val-industry"
-            type="text"
-            value={industry}
-            onChange={(e) => setIndustry(e.target.value)}
-            placeholder="e.g. Accounting, Software, Lab sciences"
+            id="val-phone"
+            type="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder="(408) 000-0000"
           />
         </div>
+      </div>
+
+      <div className="field">
+        <label htmlFor="val-industry">Industry sector</label>
+        <input
+          id="val-industry"
+          type="text"
+          value={industry}
+          onChange={(e) => setIndustry(e.target.value)}
+          placeholder="e.g. Accounting, Software, Lab sciences, Logistics"
+        />
       </div>
 
       <div className="field">

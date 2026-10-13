@@ -536,14 +536,35 @@ export default function HomePage() {
           <p style={{ color: '#4a4646', fontSize: '17px', lineHeight: '1.6', marginBottom: '32px' }}>
             Two minutes online. No files uploaded. Zero cost to you. We call within one business day with your firm’s valuation range.
           </p>
-          <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
             <Link href="/valuation" className="btn-primary" style={{ padding: '14px 32px', fontSize: '16px' }}>
               Get My Offer →
             </Link>
-            <Link href="/refer" className="btn-secondary" style={{ padding: '14px 28px', fontSize: '16px' }}>
-              Refer a Business (Earn 10%)
+            <a
+              href="tel:+14086576116"
+              className="btn-secondary"
+              style={{
+                padding: '14px 24px',
+                fontSize: '16px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontFamily: 'var(--font-mono)',
+              }}
+              title="Call Tacit: (408) 657-6116"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              <span>Call (408) 657-6116</span>
+            </a>
+            <Link href="/refer" className="btn-secondary" style={{ padding: '14px 24px', fontSize: '16px' }}>
+              Refer a Business (10%)
             </Link>
           </div>
+          <p style={{ marginTop: '16px', fontSize: '13.5px', color: '#78716c' }}>
+            Prefer to call? Speak directly with our principals at <a href="tel:+14086576116" style={{ color: '#141011', fontWeight: 700 }}>(408) 657-6116</a> (Mon–Fri 9am–6pm PT).
+          </p>
         </div>
       </section>
     </>

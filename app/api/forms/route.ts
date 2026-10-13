@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { saveSubmission, SubmissionInput } from '@/lib/db';
 import { checkRateLimit } from '@/lib/rate-limit';
-import { sendNotificationEmail } from '@/lib/mailer';
+import { sendLeadNotificationEmail, sendUserConfirmationEmail } from '@/lib/mailer';
 
 export async function POST(req: NextRequest) {
   try {
@@ -44,6 +44,7 @@ export async function POST(req: NextRequest) {
     }
 
     let company = body.company || body.organization || '';
+    const phone = body.phone ? String(body.phone).trim() : undefined;
 
     // Clean payload
     const payload = { ...body };
@@ -61,12 +62,22 @@ export async function POST(req: NextRequest) {
 
     const id = saveSubmission(submissionData);
 
-    // Prepare email notification
-    let subject = `New ${formType.replace('_', ' ')} from ${name || email}`;
-    let bodyText = `Type: ${formType}\nID: ${id}\nName: ${name}\nEmail: ${email}\nCompany: ${company}\nIP: ${ip}\nTime: ${new Date().toISOString()}\n\nDetails:\n${JSON.stringify(payload, null, 2)}`;
-
-    // Send email silently in background
-    sendNotificationEmail(subject, bodyText).catch(() => {});
+    // Send emails:
+    // 1. Lead notification with full form details to iamvazu@gmail.com and hello@tacit.exchange inbox
+    // 2. Automated user confirmation from hello@tacit.exchange within 24hr response promise
+    await Promise.allSettled([
+      sendLeadNotificationEmail({
+        id,
+        form_type: formType,
+        name: name || undefined,
+        email,
+        company: company || undefined,
+        phone,
+        data_payload: payload,
+        ip_address: ip,
+      }),
+      sendUserConfirmationEmail(email, name || undefined, formType),
+    ]);
 
     return NextResponse.json({
       success: true,

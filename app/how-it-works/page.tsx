@@ -2,80 +2,72 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'How It Works | From Initial Call to Payout',
+  title: 'The Process | From Estimate to Payment in Four Steps',
   description:
-    'Detailed 5-step data licensing workflow, timelines, and seller deliverables. Zero upfront cost, 80% payout, and complete seller veto.',
+    'How Tacit runs your data licensing deal from the initial two-minute estimate to payment. Zero cost to you, zero files to start, and you keep your original records.',
 };
 
 export default function HowItWorksPage() {
   const steps = [
     {
       step: '1',
-      title: 'Scoping & Valuation Call',
-      timeline: 'Day 1',
-      duration: '20 minutes',
-      summary: 'We evaluate your software stack, estimate historical thread density, and calculate expected licence ranges.',
-      sellerProvides: 'High-level inventory of workplace tools (e.g., Slack, GitHub, Jira, ERP), approximate employee count, and years of active record history.',
-      tacitDelivers: 'Executed mutual non-disclosure agreement (NDA) and an initial written valuation range.',
+      title: 'Request Your Estimate',
+      timeline: 'Today · 2 minutes',
+      duration: '2 minutes online',
+      summary: 'You share your approximate headcount, years in business, and what software tools you use. Nothing is uploaded, and no passwords or files are requested.',
+      whatYouDo: 'Answer 5 basic questions about your business.',
+      whatTacitDoes: 'We run your numbers against current buyer demand and schedule your confidential call.',
     },
     {
       step: '2',
-      title: 'Rights & Title Review',
-      timeline: 'Days 2–7',
-      duration: '3–5 business days',
-      summary: 'Rigorous legal check of customer contract terms, employment transparency requirements, and sector confidentiality regulations.',
-      sellerProvides: 'Sample customer MSA terms (confidentiality & IP clauses), confirmation of employee notice procedures, and director-level sign-off.',
-      tacitDelivers: 'Clear Title Assessment Report, tailored employee notice templates, and a specific exclusion checklist. (If licensing is not legally viable, we stop immediately with $0 cost).',
+      title: 'Confidential 30-Minute Call',
+      timeline: 'Within 1 business day',
+      duration: '30 minutes',
+      summary: 'We get on a short, confidential call at a time you choose. We confirm what records you have across your tools and give you a realistic dollar range.',
+      whatYouDo: 'Tell us roughly what records you have in email, accounting, or ticketing.',
+      whatTacitDoes: 'We answer your questions and give you an indicative pricing range under mutual NDA.',
     },
     {
       step: '3',
-      title: 'Scoped Read-Only Connection',
-      timeline: 'Days 5–10',
-      duration: '1–2 hours of IT time',
-      summary: 'Secure connection via read-only API connectors or encrypted dump files directly into an isolated client enclave.',
-      sellerProvides: 'Scoped read-only integration credentials or approved archive exports limited strictly to opted-in channels, boards, and folders.',
-      tacitDelivers: 'Cryptographic receipt, connection audit log, and verification that data has landed in an isolated, encrypted processing enclave.',
+      title: 'Clear Written Offer',
+      timeline: 'Within 5–7 business days',
+      duration: 'Review at your pace',
+      summary: 'You receive a straightforward, plain-English written agreement: purchase price, permitted AI training use, and payment schedule. You can read it in an evening.',
+      whatYouDo: 'Review the written terms with your partners or counsel and approve them.',
+      whatTacitDoes: 'We negotiate the highest price with authorized AI research labs and secure escrow funding.',
     },
     {
       step: '4',
-      title: 'De-Identification & Packaging',
-      timeline: 'Weeks 2–4',
-      duration: '10–15 business days',
-      summary: 'Automated entity redaction, entity replacement with consistent synthetic handles, quality scoring, and human audit sampling.',
-      sellerProvides: 'Review and formal approval of the de-identified preview dataset to verify no trade secrets or residual identifiers remain.',
-      tacitDelivers: 'Two-pass scrubbed training dataset, rigorous residual PII audit certificate (&lt;0.1% threshold), and a standardized AI Lab Datasheet.',
-    },
-    {
-      step: '5',
-      title: 'Buyer Approval & Escrow Payout',
-      timeline: 'Weeks 4–8',
-      duration: 'Release upon acceptance',
-      summary: 'You inspect the buyer’s identity and model scope. The buyer funds escrow upfront, and funds disburse directly to your bank.',
-      sellerProvides: 'Formal approval or veto of the named AI lab and intended training scope. Bank wiring details for payout.',
-      tacitDelivers: 'Escrow verification, train-only restrictive licence agreement, 80% net wire transfer to your account, and a written Deletion Certificate for intermediate processing copies.',
+      title: 'De-Identify, Deliver, and Get Paid',
+      timeline: 'On delivery',
+      duration: 'Payment wired directly',
+      summary: 'We coordinate the export with your IT person. Every identifying detail (names, emails, phones, account numbers) is scrubbed. Payment arrives in your bank before files transfer.',
+      whatYouDo: 'Approve the de-identified sample and provide your wiring details.',
+      whatTacitDoes: 'We verify complete privacy protection, release funds to your bank, and remain your ongoing contact.',
     },
   ];
 
   return (
     <div style={{ display: 'grid', gap: '64px', paddingBlock: '40px 60px' }}>
       <div>
-        <span className="eyebrow">Operating Protocol</span>
-        <h1 style={{ marginTop: '12px', marginBottom: '16px' }}>
-          From initial scoping to wire payout: Step by step.
+        <span className="eyebrow">The Process</span>
+        <h1 style={{ marginTop: '12px', marginBottom: '16px', fontSize: 'clamp(32px, 5vw, 52px)', lineHeight: 1.15 }}>
+          From estimate to payment in four steps
         </h1>
-        <p className="lede">
-          We operate with complete institutional transparency. Below is exactly what occurs during each phase of the engagement, the elapsed timelines, and what is required from your engineering and legal teams.
+        <p className="lede" style={{ fontSize: '18px', maxWidth: '72ch', lineHeight: 1.6 }}>
+          You take one call and approve the terms. We handle valuation, pricing, privacy de-identification, and closing. You risk nothing by asking.
         </p>
       </div>
 
-      <div style={{ display: 'grid', gap: '32px' }}>
+      {/* 4 Steps */}
+      <div style={{ display: 'grid', gap: '24px' }}>
         {steps.map((s) => (
           <div
             key={s.step}
             style={{
               background: 'var(--sheet)',
               border: '1px solid var(--rule)',
-              borderRadius: '10px',
+              borderRadius: '12px',
               padding: '32px',
               display: 'grid',
               gap: '20px',
@@ -84,54 +76,53 @@ export default function HowItWorksPage() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px' }}>
               <div>
                 <span className="pill" style={{ marginBottom: '8px' }}>Step {s.step} · {s.timeline}</span>
-                <h2 style={{ fontSize: '26px' }}>{s.title}</h2>
+                <h2 style={{ fontSize: '24px', margin: '4px 0 0' }}>{s.title}</h2>
               </div>
               <span className="mono" style={{ fontSize: '13px', color: 'var(--teal)', background: 'var(--teal-soft)', padding: '6px 12px', borderRadius: '4px' }}>
-                Est. time: {s.duration}
+                Time: {s.duration}
               </span>
             </div>
 
-            <p style={{ color: 'var(--ink)', fontSize: '16px', lineHeight: '1.6' }}>
+            <p style={{ color: 'var(--ink)', fontSize: '16px', lineHeight: 1.6, margin: 0 }}>
               {s.summary}
             </p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', borderTop: '1px solid var(--rule)', paddingTop: '20px' }}>
-              <div style={{ background: 'var(--paper)', padding: '18px', borderRadius: '8px' }}>
-                <span style={{ font: '600 13px var(--f-mono)', color: 'var(--ink)', display: 'block', marginBottom: '6px' }}>
-                  What the Seller Provides:
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px', borderTop: '1px solid var(--rule)', paddingTop: '20px' }}>
+              <div style={{ background: 'var(--paper)', padding: '16px', borderRadius: '8px' }}>
+                <span style={{ font: '600 13px var(--f-mono)', color: 'var(--ink)', display: 'block', marginBottom: '4px' }}>
+                  WHAT YOU DO:
                 </span>
-                <p style={{ fontSize: '14px', color: 'var(--ink-2)', lineHeight: '1.5' }}>
-                  {s.sellerProvides}
-                </p>
+                <p style={{ margin: 0, fontSize: '14px', color: 'var(--ink-2)' }}>{s.whatYouDo}</p>
               </div>
-
-              <div style={{ background: 'var(--paper)', padding: '18px', borderRadius: '8px' }}>
-                <span style={{ font: '600 13px var(--f-mono)', color: 'var(--teal)', display: 'block', marginBottom: '6px' }}>
-                  What Tacit Delivers:
+              <div style={{ background: 'var(--paper)', padding: '16px', borderRadius: '8px' }}>
+                <span style={{ font: '600 13px var(--f-mono)', color: 'var(--teal)', display: 'block', marginBottom: '4px' }}>
+                  WHAT TACIT HANDLES:
                 </span>
-                <p style={{ fontSize: '14px', color: 'var(--ink-2)', lineHeight: '1.5' }}>
-                  {s.tacitDelivers}
-                </p>
+                <p style={{ margin: 0, fontSize: '14px', color: 'var(--ink-2)' }}>{s.whatTacitDoes}</p>
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      <div style={{ background: 'var(--sheet)', border: '1px solid var(--rule)', borderRadius: '10px', padding: '36px', textAlign: 'center', display: 'grid', gap: '16px', placeItems: 'center' }}>
-        <h3>Ready to start Step 1?</h3>
-        <p className="lede" style={{ textAlign: 'center', maxWidth: '60ch' }}>
-          Schedule an initial 20-minute scoping discussion. No sales pressure, no upfront fees, and guaranteed mutual NDA protection.
-        </p>
-        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <Link href="/valuation#valuation-form" className="btn">
-            Book Scoping Call
-          </Link>
-          <Link href="/sell" className="btn ghost">
-            Review Seller Terms
-          </Link>
+      {/* Safety Reassurance */}
+      <section style={{ borderTop: 'none', paddingBlock: 0 }}>
+        <div style={{ background: 'var(--sheet)', border: '1px solid var(--rule)', borderRadius: '12px', padding: '36px', display: 'grid', gap: '20px' }}>
+          <span className="eyebrow">Privacy &amp; Safety</span>
+          <h2 style={{ fontSize: '26px', margin: 0 }}>What actually leaves your building?</h2>
+          <p style={{ color: 'var(--ink-2)', fontSize: '16px', lineHeight: 1.6, margin: 0 }}>
+            Your clients and employees are never named. Every identifying detail—names, contact information, account numbers, and passwords—is completely removed or replaced with generic placeholders before delivery. The real-world work survives, and the people disappear.
+          </p>
+          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginTop: '8px' }}>
+            <Link href="/valuation" className="btn">
+              Get an Offer for Your Firm →
+            </Link>
+            <Link href="/security" className="btn ghost">
+              Read Full Privacy Standards
+            </Link>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

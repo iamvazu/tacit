@@ -3,21 +3,21 @@ import Estimator from '@/components/Estimator';
 import ValuationForm from '@/components/Forms/ValuationForm';
 
 export const metadata: Metadata = {
-  title: 'Data Valuation Calculator & Valuation Call',
+  title: 'Estimate Your Payout | Data Licensing Valuation',
   description:
-    'Estimate the market value of your private enterprise work records. 80% net payout to sellers. Book a 20-minute confidential scoping call.',
+    'Find out what AI labs will pay for your firm’s records. Two minutes online. No files uploaded. Zero cost to you.',
 };
 
 export default function ValuationPage() {
   return (
     <div style={{ display: 'grid', gap: '64px', paddingBlock: '40px 60px' }}>
       <div>
-        <span className="eyebrow">Valuation Benchmark</span>
-        <h1 style={{ marginTop: '12px', marginBottom: '16px' }}>
-          What is your company&apos;s work history worth?
+        <span className="eyebrow">Payout Estimator</span>
+        <h1 style={{ marginTop: '12px', marginBottom: '16px', fontSize: 'clamp(32px, 5vw, 52px)', lineHeight: 1.15 }}>
+          Find out what your firm’s records are worth
         </h1>
-        <p className="lede">
-          Model builders price operational traces according to reasoning depth, domain scarcity, and cleanliness of title. Adjust the inputs below to estimate your gross and net licence proceeds.
+        <p className="lede" style={{ fontSize: '18px', maxWidth: '72ch', lineHeight: 1.6 }}>
+          AI labs are actively paying established firms to license de-identified copies of records they already keep. Answer a few questions below to estimate your payout.
         </p>
       </div>
 
@@ -29,34 +29,34 @@ export default function ValuationPage() {
         <ValuationForm />
       </section>
 
-      <section style={{ background: 'var(--sheet)', border: '1px solid var(--rule)', borderRadius: '10px', padding: '32px' }}>
-        <h3 style={{ marginBottom: '12px' }}>Valuation Methodology & Pricing Signals</h3>
-        <p style={{ color: 'var(--ink-2)', lineHeight: '1.6', marginBottom: '16px' }}>
-          Our benchmark algorithm draws upon closed and active transaction benchmarks for enterprise AI training licences. The formula balances five core factors:
+      <section style={{ background: 'var(--sheet)', border: '1px solid var(--rule)', borderRadius: '12px', padding: '32px' }}>
+        <h3 style={{ fontSize: '20px', marginBottom: '12px' }}>How We Value Your Firm’s Records</h3>
+        <p style={{ color: 'var(--ink-2)', lineHeight: 1.6, marginBottom: '20px', fontSize: '15px' }}>
+          Our estimates are based on actual closed licensing transactions for established US firms. Four main factors determine the offer:
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
           <div>
-            <strong>1. Domain Multiplier:</strong>
-            <p style={{ fontSize: '14px', color: 'var(--ink-2)', marginTop: '4px' }}>
-              Specialized industries (EDA chip design, pharmaceuticals, complex legal drafting) command premium rates over commodity consumer data.
+            <strong>1. Your Industry:</strong>
+            <p style={{ fontSize: '14px', color: 'var(--ink-2)', marginTop: '4px', lineHeight: 1.5 }}>
+              Specialized industries (accounting, logistics, engineering, healthcare, trade contracting) command the highest offers because real-world procedural knowledge is scarce.
             </p>
           </div>
           <div>
-            <strong>2. History Depth:</strong>
-            <p style={{ fontSize: '14px', color: 'var(--ink-2)', marginTop: '4px' }}>
-              Workspaces with 5–15+ years of continuous decision archives provide critical longitudinal reasoning signals across economic and technological shifts.
+            <strong>2. Years in Business:</strong>
+            <p style={{ fontSize: '14px', color: 'var(--ink-2)', marginTop: '4px', lineHeight: 1.5 }}>
+              Firms with 3 to 15+ years of archived emails, projects, and workpapers provide deep historical context that cannot be recreated today.
             </p>
           </div>
           <div>
-            <strong>3. Multi-Source Correlation:</strong>
-            <p style={{ fontSize: '14px', color: 'var(--ink-2)', marginTop: '4px' }}>
-              Correlating communication threads (Slack/Teams) with code check-ins (GitHub) or financial adjustments (Xero/SAP) increases value 2–3x.
+            <strong>3. Number of Employees:</strong>
+            <p style={{ fontSize: '14px', color: 'var(--ink-2)', marginTop: '4px', lineHeight: 1.5 }}>
+              More team members mean more everyday workflows, tickets, and problem-solving threads captured across your software systems.
             </p>
           </div>
           <div>
-            <strong>4. Expert Decision Notes:</strong>
-            <p style={{ fontSize: '14px', color: 'var(--ink-2)', marginTop: '4px' }}>
-              Providing internal expert commentary on ambiguous edge cases unlocks additional consulting bonuses (+20–40%).
+            <strong>4. Connected Systems:</strong>
+            <p style={{ fontSize: '14px', color: 'var(--ink-2)', marginTop: '4px', lineHeight: 1.5 }}>
+              Records that show how decisions were made from start to finish (e.g. email threads combined with accounting invoices or job tickets) are worth the most.
             </p>
           </div>
         </div>

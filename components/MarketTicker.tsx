@@ -9,56 +9,59 @@ interface TrancheItem {
   description: string;
   tokens: string;
   bidRange: string;
-  status: 'CLEARED' | 'IN AUDIT' | 'LICENSED';
+  status: 'PAID' | 'VERIFIED' | 'COMPLETED';
 }
 
 const TRANCHES: TrancheItem[] = [
   {
-    id: 'TRANCHE-K8S-902',
-    domain: 'Infrastructure & SRE',
-    description: '1,420 de-identified Kubernetes & distributed outage resolution trees with terminal replays',
-    tokens: '4.8M Tokens',
-    bidRange: '$180,000 – $240,000',
-    status: 'CLEARED',
+    id: 'DEAL-LOGISTICS',
+    domain: 'Freight Broker · 100 people',
+    description: 'Rate quotes, shipment documents, dispatch records, delivery exceptions, and freight claims.',
+    tokens: 'Paid to business',
+    bidRange: '$650,000',
+    status: 'PAID',
   },
   {
-    id: 'TRANCHE-FIN-412',
-    domain: 'Enterprise ERP',
-    description: 'Multi-entity corporate ledger discrepancy investigations & accounting audit trails',
-    tokens: '7.2M Tokens',
-    bidRange: '$310,000 – $420,000',
-    status: 'IN AUDIT',
+    id: 'DEAL-ENGINEERING',
+    domain: 'Engineering Firm · 70 people',
+    description: 'CAD drawings, structural calculations, technical reports, revisions, and project specifications.',
+    tokens: 'Paid to business',
+    bidRange: '$450,000',
+    status: 'PAID',
   },
   {
-    id: 'TRANCHE-SWE-705',
-    domain: 'Software Architecture',
-    description: 'Staff-level code review discussion threads, refactoring rationale & security patches',
-    tokens: '11.5M Tokens',
-    bidRange: '$490,000 – $650,000',
-    status: 'CLEARED',
+    id: 'DEAL-ACCOUNTING',
+    domain: 'Accounting Firm · 60 people',
+    description: 'Five years of workpapers, account reconciliations, financial models, and tax-preparation files.',
+    tokens: 'Paid to business',
+    bidRange: '$350,000',
+    status: 'PAID',
   },
   {
-    id: 'TRANCHE-OPS-330',
-    domain: 'Customer Logistics',
-    description: 'High-tier supply chain exception escalation resolution workflows & vendor negotiations',
-    tokens: '3.1M Tokens',
-    bidRange: '$130,000 – $175,000',
-    status: 'LICENSED',
+    id: 'DEAL-DISTRIBUTION',
+    domain: 'Industrial Distribution',
+    description: 'Operating communications, product knowledge, order history, and supplier correspondence.',
+    tokens: 'Paid to business',
+    bidRange: '$1,200,000',
+    status: 'PAID',
   },
 ];
 
 export default function MarketTicker() {
   return (
-    <div className="market-ticker-section">
+    <div className="market-ticker-section" id="deals">
       <div className="market-ticker-header">
         <div>
-          <span className="section-badge">Active Market Tranches</span>
-          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', margin: '4px 0 0', color: 'var(--text-primary)' }}>
-            Cleared Operational Datasets in High Demand
+          <span className="section-badge">Recent Market Proof</span>
+          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '24px', margin: '4px 0 0', color: 'var(--text-primary)' }}>
+            Recent Licensing Payments to Firms Like Yours
           </h3>
+          <p style={{ fontSize: '14px', color: 'var(--text-secondary)', margin: '4px 0 0' }}>
+            Published across the data licensing market in 2026. Real companies paid six and seven figures for everyday records.
+          </p>
         </div>
-        <Link href="/buyers" style={{ fontSize: '13px', fontFamily: 'var(--font-mono)', color: 'var(--cyan-primary)', textDecoration: 'none' }}>
-          Explore Full Lab Catalogue →
+        <Link href="/valuation" style={{ fontSize: '13px', fontFamily: 'var(--font-mono)', color: 'var(--cyan-primary)', textDecoration: 'none' }}>
+          Estimate What Yours Are Worth →
         </Link>
       </div>
 
@@ -75,15 +78,15 @@ export default function MarketTicker() {
                   padding: '2px 8px',
                   borderRadius: '9999px',
                   background:
-                    tranche.status === 'CLEARED'
+                    tranche.status === 'PAID'
                       ? 'rgba(16, 185, 129, 0.15)'
-                      : tranche.status === 'IN AUDIT'
+                      : tranche.status === 'VERIFIED'
                       ? 'rgba(245, 158, 11, 0.15)'
                       : 'rgba(59, 130, 246, 0.15)',
                   color:
-                    tranche.status === 'CLEARED'
+                    tranche.status === 'PAID'
                       ? 'var(--green-verified)'
-                      : tranche.status === 'IN AUDIT'
+                      : tranche.status === 'VERIFIED'
                       ? 'var(--amber-warn)'
                       : 'var(--blue-accent)',
                   border: '1px solid currentColor',

@@ -79,10 +79,10 @@ export default function ValuationForm({
   return (
     <form className="form-card" id="valuation-form" onSubmit={handleSubmit}>
       <div>
-        <span className="eyebrow">Direct scheduling</span>
-        <h3 style={{ fontSize: '24px', marginTop: '6px' }}>Book a 20-minute valuation call</h3>
+        <span className="eyebrow">Request Your Offer</span>
+        <h3 style={{ fontSize: '24px', marginTop: '6px' }}>Find out what your records are worth</h3>
         <p className="lede" style={{ fontSize: '15px', marginTop: '6px' }}>
-          We review your workspace tools, verify rights constraints, and provide a concrete valuation range in writing.
+          Tell us about your firm. We call within one business day with your payout range. No files uploaded and zero cost to you.
         </p>
       </div>
 
@@ -175,10 +175,10 @@ export default function ValuationForm({
 
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', marginTop: '8px' }}>
         <div style={{ fontSize: '13px', color: 'var(--ink-2)' }}>
-          Mutual NDA signed on the call. No upfront fees.
+          Held in strict confidence · No files uploaded · Zero cost to you
         </div>
         <button type="submit" className="btn" disabled={loading}>
-          {loading ? 'Submitting...' : 'Request Valuation Call'}
+          {loading ? 'Submitting...' : 'Get My Offer →'}
         </button>
       </div>
     </form>

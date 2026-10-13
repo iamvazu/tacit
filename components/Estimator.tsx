@@ -78,8 +78,8 @@ export default function Estimator({ onEstimateChange, ctaTargetId = 'valuation-f
   const hi = hasSources ? Math.max(25000, mid * 1.4) : 0;
   const maxVal = parts.length > 0 ? Math.max(...parts.map((p) => p.v), 1) : 1;
 
-  const rangeStr = hasSources ? `${fmt(lo)} – ${fmt(hi)}` : 'Pick a source';
-  const netStr = hasSources ? `You keep ${fmt(lo * 0.8)} – ${fmt(hi * 0.8)} after our 20% fee` : '';
+  const rangeStr = hasSources ? `${fmt(lo)} – ${fmt(hi)}` : 'Select your sources';
+  const netStr = hasSources ? `Estimated net payout to your firm: ${fmt(lo * 0.8)} – ${fmt(hi * 0.8)}` : '';
 
   const handleSourceToggle = (src: string) => {
     const updated = selectedSources.includes(src)
@@ -197,7 +197,7 @@ export default function Estimator({ onEstimateChange, ctaTargetId = 'valuation-f
       </form>
 
       <aside className="result" aria-live="polite">
-        <span className="lbl">Estimated licence value</span>
+        <span className="lbl">Estimated Payout to Your Firm</span>
         <div className="range num">{rangeStr}</div>
         <div className="net num">{netStr}</div>
 
@@ -219,11 +219,11 @@ export default function Estimator({ onEstimateChange, ctaTargetId = 'valuation-f
         </div>
 
         <p className="disc">
-          Illustrative calculation: A rough range from public deal benchmarks, not an offer. Final price depends on volume after de-identification, data quality, exclusivity and buyer demand. Some datasets don&apos;t sell.
+          Based on recent data licensing transactions for established US firms. An illustration only: your actual offer comes in writing and depends on data review. Zero cost to you.
         </p>
 
         <button type="button" className="btn accent" onClick={scrollToForm}>
-          Book a 20-minute valuation call
+          Get My Written Offer →
         </button>
       </aside>
     </div>

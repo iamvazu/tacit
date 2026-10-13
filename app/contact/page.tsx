@@ -13,12 +13,12 @@ export default function ContactPage() {
   return (
     <div style={{ display: 'grid', gap: '64px', paddingBlock: '40px 60px' }}>
       <div>
-        <span className="eyebrow">Direct Principal Desk</span>
+        <span className="eyebrow">Get In Touch</span>
         <h1 style={{ marginTop: '12px', marginBottom: '16px' }}>
-          Get in touch with Tacit.
+          Talk to our team
         </h1>
         <p className="lede">
-          We work with senior leadership, corporate legal counsel, and AI research directors. All inquiries are treated with strict confidentiality under standard mutual non-disclosure frameworks.
+          Whether you&apos;re a business owner curious about what your records are worth, or an advisor looking to introduce a client, we&apos;re here to answer your questions. We respond within one business day.
         </p>
       </div>
 

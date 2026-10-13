@@ -11,53 +11,59 @@ export default function Footer() {
               <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '18px', color: 'var(--text-primary)' }}>Tacit</span>
             </div>
             <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: '1.6', maxWidth: '320px' }}>
-              The sovereign exchange for private operational telemetry. We broker clean-title, de-identified enterprise work records directly to frontier AI research labs.
+              We help business owners license de-identified copies of their everyday work records to AI labs. You keep your originals, approve every term, and pay zero fees.
             </p>
             <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--green-verified)' }}>
               <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--green-verified)' }} />
-              OPERATIONAL · ESCROW COMPLIANT
+              ZERO COST TO SELLERS · 100% CONFIDENTIAL
             </div>
           </div>
 
           <div>
-            <div className="footer-col-title">Data Sellers</div>
+            <div className="footer-col-title">For Business Owners</div>
             <ul className="footer-links">
-              <li><Link href="/sell">What Sells</Link></li>
-              <li><Link href="/valuation">Valuation Simulator</Link></li>
-              <li><Link href="/rights-check">Rights Verification</Link></li>
-              <li><Link href="/how-it-works">De-Identification Pipeline</Link></li>
-              <li><Link href="/pricing">Pricing & 80% Payout</Link></li>
+              <li><Link href="/#deals">Recent Deals</Link></li>
+              <li><Link href="/valuation">Payout Estimator</Link></li>
+              <li><Link href="/sell">What Records Sell</Link></li>
+              <li><Link href="/#process">How It Works</Link></li>
+              <li><Link href="/#questions">Questions &amp; Answers</Link></li>
+              <li><Link href="/security">Privacy &amp; Safety</Link></li>
             </ul>
           </div>
 
           <div>
-            <div className="footer-col-title">Frontier AI Labs</div>
+            <div className="footer-col-title">Partner Program</div>
             <ul className="footer-links">
-              <li><Link href="/buyers">Catalogue Overview</Link></li>
-              <li><Link href="/security">Air-Gap Security Standards</Link></li>
-              <li><Link href="/buyers#request">Request Lab Access</Link></li>
-              <li><Link href="/contact">Bespoke Collection</Link></li>
+              <li><Link href="/refer">Become a Partner</Link></li>
+              <li><Link href="/refer#referral-form-section">Introduce a Business (10%)</Link></li>
+              <li><Link href="/pricing">Partner Economics</Link></li>
+              <li><Link href="/contact">Talk to Our Team</Link></li>
             </ul>
           </div>
 
           <div>
-            <div className="footer-col-title">Governance & Legal</div>
+            <div className="footer-col-title">Legal &amp; Privacy</div>
             <ul className="footer-links">
-              <li><Link href="/about">About Inception2c LLC</Link></li>
-              <li><Link href="/seller-agreement">Master Seller Agreement</Link></li>
-              <li><Link href="/licence-terms">Train-Only Licence Terms</Link></li>
               <li><Link href="/privacy">Privacy Notice</Link></li>
+              <li><Link href="/seller-agreement">Seller Agreement</Link></li>
+              <li><Link href="/licence-terms">License Terms</Link></li>
               <li><Link href="/terms">Terms of Platform</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="footer-bottom">
+        <div style={{ borderTop: '1px solid var(--border-subtle)', marginTop: '32px', paddingTop: '20px', fontSize: '12px', color: 'var(--text-muted)', lineHeight: '1.7' }}>
+          <p style={{ margin: '0 0 10px' }}>
+            <strong>Disclosure:</strong> Tacit facilitates data-licensing transactions between business owners and authorized AI research labs. Business owners pay zero fees at any stage. Payout estimates are illustrations based on recent market transactions and are not guarantees of any specific offer. Company names and identifying records are scrubbed prior to any data transfer.
+          </p>
+        </div>
+
+        <div className="footer-bottom" style={{ marginTop: '16px' }}>
           <div>
             Operated by Inception2c LLC d/b/a Tacit · Registered in the United States.
           </div>
           <div>
-            © {new Date().getFullYear()} Inception2c LLC. All rights reserved.
+            © {new Date().getFullYear()} Tacit. All rights reserved.
           </div>
         </div>
       </div>

@@ -9,14 +9,11 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const links = [
+    { href: '/#deals', label: 'Deals' },
+    { href: '/#process', label: 'Process' },
     { href: '/sell', label: 'What Sells' },
-    { href: '/valuation', label: 'Valuation' },
-    { href: '/rights-check', label: 'Rights Check' },
-    { href: '/how-it-works', label: 'Pipeline' },
-    { href: '/security', label: 'Security' },
-    { href: '/buyers', label: 'AI Labs' },
-    { href: '/pricing', label: 'Pricing' },
-    { href: '/faq', label: 'FAQ' },
+    { href: '/#questions', label: 'Questions' },
+    { href: '/refer', label: 'Partners' },
   ];
 
   return (
@@ -25,12 +22,12 @@ export default function Navbar() {
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <span className="live-pulse-dot" />
           <span style={{ color: '#E2E8F0', fontWeight: 600 }}>
-            TACIT PROTOCOL ACTIVE · 18.4M TOKENS CLEARED UNDER CLEAN TITLE
+            AI labs are paying established firms six figures for their old records
           </span>
         </div>
         <div style={{ display: 'flex', gap: '16px' }}>
-          <span style={{ color: '#10B981', fontWeight: 600 }}>80% DIRECT SELLER SHARE</span>
-          <span style={{ color: '#94A3B8' }}>TRAIN-ONLY LICENCES</span>
+          <span style={{ color: '#10B981', fontWeight: 600 }}>Zero Cost to You</span>
+          <span style={{ color: '#CBD5E1' }}>You Keep Your Originals</span>
         </div>
       </div>
 
@@ -63,7 +60,7 @@ export default function Navbar() {
 
             <div className="nav-cta-cluster">
               <Link href="/valuation" className="btn-primary" style={{ padding: '8px 20px', fontSize: '13px' }}>
-                Value My Data
+                Get an Offer
               </Link>
               <button
                 type="button"

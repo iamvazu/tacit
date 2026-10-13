@@ -2,21 +2,21 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Transparent Broker Pricing & Fee Structure',
+  title: 'Pricing & Economics | Zero Cost to You',
   description:
-    'Our transparent fee structure: 20% success fee on closed deals, 0% upfront costs, expert annotation consulting rates, and 10% referral payouts.',
+    'No upfront fees, no evaluation fees, and no technical costs. Tacit only earns when your data licensing deal closes and payment lands in your bank.',
 };
 
 export default function PricingPage() {
   return (
     <div style={{ display: 'grid', gap: '64px', paddingBlock: '40px 60px' }}>
       <div>
-        <span className="eyebrow">Fair &amp; Transparent Economics</span>
-        <h1 style={{ marginTop: '12px', marginBottom: '16px' }}>
-          Zero upfront costs. We earn when your licence closes.
+        <span className="eyebrow">Fair &amp; Transparent</span>
+        <h1 style={{ marginTop: '12px', marginBottom: '16px', fontSize: 'clamp(32px, 5vw, 52px)', lineHeight: 1.15 }}>
+          Zero cost to you. We only earn when you get paid.
         </h1>
-        <p className="lede">
-          Tacit operates as an aligned broker. We never bill for data audits, legal scoping, technical connectors, or packaging. Our compensation is strictly tied to successful commercial execution.
+        <p className="lede" style={{ fontSize: '18px', maxWidth: '72ch', lineHeight: 1.6 }}>
+          There is no fee to the business owner at any stage. We do not charge for valuations, legal review, or de-identification. If you don’t accept an offer, you walk away owing nothing.
         </p>
       </div>
 
@@ -24,89 +24,59 @@ export default function PricingPage() {
       <section style={{ borderTop: 'none', paddingBlock: 0 }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
           {/* Sellers card */}
-          <div style={{ background: 'var(--sheet)', border: '2px solid var(--ink)', borderRadius: '10px', padding: '36px', display: 'grid', gap: '16px' }}>
-            <span className="pill" style={{ justifySelf: 'start' }}>Core Brokerage</span>
+          <div style={{ background: 'var(--sheet)', border: '2px solid var(--ink)', borderRadius: '12px', padding: '36px', display: 'grid', gap: '16px' }}>
+            <span className="pill" style={{ justifySelf: 'start' }}>For Business Owners</span>
             <div style={{ font: '800 48px/1 var(--f-display)', letterSpacing: '-0.03em' }}>
-              80% <span style={{ fontSize: '20px', fontWeight: 600, color: 'var(--ink-2)' }}>to seller</span>
+              $0 <span style={{ fontSize: '20px', fontWeight: 600, color: 'var(--ink-2)' }}>cost to you</span>
             </div>
-            <h3 style={{ fontSize: '20px' }}>20% Broker Success Fee</h3>
-            <p style={{ color: 'var(--ink-2)', fontSize: '15px', lineHeight: '1.5' }}>
-              On every closed transaction, 80% of gross licensing revenue goes directly to the data seller. Tacit retains a 20% fee to cover legal review, two-pass de-identification, packaging, and escrow handling.
+            <h3 style={{ fontSize: '20px', margin: 0 }}>You Keep the Net Proceeds</h3>
+            <p style={{ color: 'var(--ink-2)', fontSize: '15px', lineHeight: 1.5, margin: 0 }}>
+              Your written offer states the exact dollar amount your firm will receive. We cover all legal review, de-identification, packaging, and escrow fees out of the transaction.
             </p>
             <ul style={{ margin: 0, paddingLeft: '18px', color: 'var(--ink-2)', fontSize: '14px', display: 'grid', gap: '8px' }}>
-              <li><strong>$0 setup or onboarding fees</strong></li>
-              <li><strong>$0 scoping or rights audit fees</strong></li>
-              <li><strong>$0 charge if your data doesn&apos;t license</strong></li>
-              <li><strong>Funds secured in escrow before delivery</strong></li>
+              <li><strong>$0 upfront or setup fees</strong></li>
+              <li><strong>$0 evaluation or estimate fees</strong></li>
+              <li><strong>$0 fee if you decline the offer</strong></li>
+              <li><strong>Payment wired before final transfer</strong></li>
             </ul>
             <div style={{ marginTop: '12px' }}>
-              <Link href="/valuation" className="btn" style={{ width: '100%' }}>
-                Estimate Your Net Payout
-              </Link>
-            </div>
-          </div>
-
-          {/* Expert annotation card */}
-          <div style={{ background: 'var(--sheet)', border: '1px solid var(--rule)', borderRadius: '10px', padding: '36px', display: 'grid', gap: '16px' }}>
-            <span className="pill" style={{ justifySelf: 'start' }}>Optional Consulting</span>
-            <div style={{ font: '800 48px/1 var(--f-display)', letterSpacing: '-0.03em' }}>
-              $150–$350<span style={{ fontSize: '20px', fontWeight: 600, color: 'var(--ink-2)' }}>/hour</span>
-            </div>
-            <h3 style={{ fontSize: '20px' }}>Expert Annotation Rate</h3>
-            <p style={{ color: 'var(--ink-2)', fontSize: '15px', lineHeight: '1.5' }}>
-              When buyers request domain expert commentary to clarify complex edge cases or verify ground truth, seller employees can provide structured annotations for an hourly consulting stipend.
-            </p>
-            <ul style={{ margin: 0, paddingLeft: '18px', color: 'var(--ink-2)', fontSize: '14px', display: 'grid', gap: '8px' }}>
-              <li><strong>100% of annotation rate paid to seller/experts</strong></li>
-              <li><strong>Typically increases total deal value by 20–40%</strong></li>
-              <li><strong>Flexible asynchronous scheduling for internal staff</strong></li>
-              <li><strong>Fully optional at the seller&apos;s discretion</strong></li>
-            </ul>
-            <div style={{ marginTop: '12px' }}>
-              <Link href="/contact" className="btn ghost" style={{ width: '100%' }}>
-                Inquire About Annotation Programs
+              <Link href="/valuation" className="btn" style={{ width: '100%', textAlign: 'center' }}>
+                Get an Offer for Your Firm →
               </Link>
             </div>
           </div>
 
           {/* Referral card */}
-          <div style={{ background: 'var(--sheet)', border: '1px solid var(--rule)', borderRadius: '10px', padding: '36px', display: 'grid', gap: '16px' }}>
-            <span className="pill" style={{ justifySelf: 'start' }}>Partner Network</span>
-            <div style={{ font: '800 48px/1 var(--f-display)', letterSpacing: '-0.03em' }}>
-              10% <span style={{ fontSize: '20px', fontWeight: 600, color: 'var(--ink-2)' }}>of our fee</span>
+          <div style={{ background: 'var(--sheet)', border: '1px solid var(--rule)', borderRadius: '12px', padding: '36px', display: 'grid', gap: '16px' }}>
+            <span className="pill" style={{ justifySelf: 'start' }}>For Referral Partners</span>
+            <div style={{ font: '800 48px/1 var(--f-display)', letterSpacing: '-0.03em', color: 'var(--teal)' }}>
+              10% <span style={{ fontSize: '20px', fontWeight: 600, color: 'var(--ink-2)' }}>of what the firm is paid</span>
             </div>
-            <h3 style={{ fontSize: '20px' }}>Referral Payout</h3>
-            <p style={{ color: 'var(--ink-2)', fontSize: '15px', lineHeight: '1.5' }}>
-              Introduce an organization with valuable historical archives. If that company licenses a dataset through Tacit, you earn 10% of our success fee upon transaction closing.
+            <h3 style={{ fontSize: '20px', margin: 0 }}>Earn Up to $100,000 per Introduction</h3>
+            <p style={{ color: 'var(--ink-2)', fontSize: '15px', lineHeight: 1.5, margin: 0 }}>
+              If you advise business owners (CPAs, brokers, attorneys, bankers, consultants), introduce them to Tacit. When their deal closes, you earn 10% of their payment, up to $100,000.
             </p>
             <ul style={{ margin: 0, paddingLeft: '18px', color: 'var(--ink-2)', fontSize: '14px', display: 'grid', gap: '8px' }}>
-              <li><strong>Typical referral payment: $2,000 to $15,000+</strong></li>
-              <li><strong>Disbursed via bank transfer on closing</strong></li>
-              <li><strong>Zero administrative overhead for referrers</strong></li>
+              <li><strong>$35,000 to $65,000+ typical commission</strong></li>
+              <li><strong>Paid once per business directly via wire</strong></li>
+              <li><strong>Zero cost to you or the introduced owner</strong></li>
               <li><strong>Discreet and professional introduction process</strong></li>
             </ul>
             <div style={{ marginTop: '12px' }}>
-              <Link href="/refer" className="btn ghost" style={{ width: '100%' }}>
-                Submit a Referral
+              <Link href="/refer" className="btn ghost" style={{ width: '100%', textAlign: 'center' }}>
+                Join the Partner Program →
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Escrow & Payment Flow */}
-      <section>
-        <div className="sec-head">
-          <span className="eyebrow">Payment Guarantees</span>
-          <h2>How money moves: Escrow-backed security</h2>
-          <p className="lede">
-            You never take collection risk or chase accounts receivable across borders.
-          </p>
-        </div>
-
-        <div style={{ background: 'var(--paper)', border: '1px solid var(--rule)', borderRadius: '10px', padding: '28px', display: 'grid', gap: '14px' }}>
-          <p style={{ color: 'var(--ink)', fontSize: '15px', lineHeight: '1.6' }}>
-            Upon agreement of terms, the purchasing AI lab deposits 100% of the agreed licensing funds with an independent licensed escrow agent. Tacit initiates delivery of the scrubbed dataset only after confirmation of escrow deposit. Once the buyer completes technical acceptance testing (typically 5–10 business days), escrow funds release automatically: 80% directly to your corporate account and 20% to Tacit.
+      {/* Guarantee Promise */}
+      <section style={{ borderTop: 'none', paddingBlock: 0 }}>
+        <div style={{ background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '12px', padding: '32px' }}>
+          <h3 style={{ fontSize: '22px', margin: '0 0 10px', color: 'var(--ink)' }}>Our Promise: No Offer, No Cost</h3>
+          <p style={{ color: 'var(--ink-2)', fontSize: '15px', lineHeight: 1.6, margin: 0, maxWidth: '70ch' }}>
+            You approve every term in writing before a single record is exported. If we don’t bring an offer you like, nothing has left your systems, and you owe nothing.
           </p>
         </div>
       </section>

@@ -8,23 +8,22 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://tacit.exchange';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Tacit | Licensed Operational Data for AI Training',
+    default: 'Tacit | Your Old Records Are Worth Six Figures to AI Labs',
     template: '%s | Tacit',
   },
   description:
-    'Tacit brokers clean-title, de-identified private company work records (tickets, ledgers, code reviews, domain systems) to frontier AI labs. 80% to sellers, buyer veto, train-only licence.',
+    'AI labs are paying established firms six and seven figures to license de-identified copies of their emails, files, and records. Tacit handles the entire sale.',
   keywords: [
-    'AI training data',
-    'operational data broker',
-    'de-identified work records',
-    'enterprise data monetization',
-    'frontier AI datasets',
-    'decision traces',
-    'Inception2c LLC',
+    'AI training data licensing',
+    'data licensing for business owners',
+    'de-identified business records',
+    'monetize company records',
+    'Pewter data',
+    'Tacit',
   ],
-  authors: [{ name: 'Inception2c LLC d/b/a Tacit' }],
-  creator: 'Inception2c LLC',
-  publisher: 'Inception2c LLC',
+  authors: [{ name: 'Tacit' }],
+  creator: 'Tacit',
+  publisher: 'Tacit',
   robots: {
     index: true,
     follow: true,
@@ -38,23 +37,23 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: siteUrl,
     siteName: 'Tacit',
-    title: 'Tacit | Licensed Operational Data for AI Training',
+    title: 'Tacit | Your Old Records Are Worth Six Figures to AI Labs',
     description:
-      'The AI labs already read the internet. They haven’t read how your team works. We check rights, strip identities, and pay you when licensed.',
+      'Established firms are being paid $350K to $1M+ to license de-identified copies of their everyday records. We handle the entire sale.',
     images: [
       {
         url: `${siteUrl}/api/og`,
         width: 1200,
         height: 630,
-        alt: 'Tacit - Licensed Operational Data for AI Training',
+        alt: 'Tacit - Turn Your Firm’s Records Into Six Figures',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tacit | Licensed Operational Data for AI Training',
+    title: 'Tacit | Your Old Records Are Worth Six Figures to AI Labs',
     description:
-      'We turn private company work records into de-identified training datasets with clean title.',
+      'Established firms are being paid six figures to license de-identified copies of their records. We run the entire sale.',
     images: [`${siteUrl}/api/og`],
   },
   icons: {

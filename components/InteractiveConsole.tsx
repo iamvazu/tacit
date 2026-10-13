@@ -124,14 +124,15 @@ export default function InteractiveConsole() {
             onClick={() => setShowRedacted(!showRedacted)}
             style={{
               padding: '6px 12px',
-              borderRadius: '6px',
+              borderRadius: '4px',
               fontSize: '11px',
               fontFamily: 'var(--font-mono)',
-              fontWeight: 600,
+              fontWeight: 700,
               cursor: 'pointer',
-              border: '1px solid var(--border-glow)',
-              background: showRedacted ? 'rgba(0, 242, 254, 0.15)' : 'rgba(255, 255, 255, 0.05)',
-              color: showRedacted ? 'var(--cyan-primary)' : 'var(--text-secondary)',
+              border: '1.5px solid #141011',
+              background: showRedacted ? '#fef3c7' : '#ffffff',
+              color: showRedacted ? '#92400e' : '#141011',
+              boxShadow: '1.5px 1.5px 0px #141011',
             }}
           >
             {showRedacted ? '✓ De-Identified Copy' : 'Original (Stays With You)'}
@@ -142,14 +143,15 @@ export default function InteractiveConsole() {
             onClick={() => setSelectedTraceIdx((prev) => (prev + 1) % TRACES.length)}
             style={{
               padding: '6px 12px',
-              borderRadius: '6px',
+              borderRadius: '4px',
               fontSize: '11px',
               fontFamily: 'var(--font-mono)',
-              fontWeight: 600,
+              fontWeight: 700,
               cursor: 'pointer',
-              border: '1px solid var(--border-subtle)',
-              background: 'rgba(255, 255, 255, 0.05)',
-              color: 'var(--text-secondary)',
+              border: '1.5px solid #141011',
+              background: '#ffffff',
+              color: '#141011',
+              boxShadow: '1.5px 1.5px 0px #141011',
             }}
           >
             Next Example ↻
@@ -162,7 +164,7 @@ export default function InteractiveConsole() {
           <div key={idx} className="trace-item active-step">
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px', fontSize: '11px', color: 'var(--text-muted)' }}>
               <span>{step.time}</span>
-              <span style={{ color: 'var(--cyan-primary)' }}>{step.category}</span>
+              <span style={{ color: '#b45309', fontWeight: 700 }}>{step.category}</span>
             </div>
             <div style={{ color: 'var(--text-primary)', lineHeight: '1.5' }}>
               {showRedacted ? (
@@ -178,7 +180,7 @@ export default function InteractiveConsole() {
                   )}
                 </span>
               ) : (
-                <span style={{ color: '#FCA5A5' }}>{step.rawText}</span>
+                <span style={{ color: '#b91c1c', fontWeight: 600 }}>{step.rawText}</span>
               )}
             </div>
           </div>

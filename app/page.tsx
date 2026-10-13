@@ -118,7 +118,7 @@ export default function HomePage() {
 
           <h1 className="hero-title">
             Your old email and files are worth{' '}
-            <span style={{ color: '#00F2FE' }}>six figures to AI labs.</span> We handle the entire sale.
+            <span className="hero-highlight">six figures to AI labs.</span> We handle the entire sale.
           </h1>
 
           <p className="hero-description">
@@ -175,10 +175,8 @@ export default function HomePage() {
           {deals.map((deal, idx) => (
             <div
               key={idx}
+              className="tactical-card"
               style={{
-                background: '#0B0F19',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                borderRadius: '12px',
                 padding: '28px',
                 display: 'flex',
                 flexDirection: 'column',
@@ -187,17 +185,17 @@ export default function HomePage() {
               }}
             >
               <div>
-                <div style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--cyan-primary)', fontWeight: 700, marginBottom: '6px' }}>
+                <div style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: '#b45309', fontWeight: 700, marginBottom: '6px' }}>
                   {deal.sector}
                 </div>
-                <div style={{ fontSize: '32px', fontFamily: 'var(--font-display)', color: '#FFFFFF', fontWeight: 700, marginBottom: '10px' }}>
+                <div style={{ fontSize: '32px', fontFamily: 'var(--font-display)', color: '#141011', fontWeight: 800, marginBottom: '10px' }}>
                   {deal.payout}
                 </div>
-                <p style={{ color: '#94A3B8', fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+                <p style={{ color: '#4a4646', fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
                   {deal.description}
                 </p>
               </div>
-              <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '12px', fontSize: '12px', color: '#64748B' }}>
+              <div style={{ borderTop: '1px solid #e4e0d7', paddingTop: '12px', fontSize: '12px', color: '#78716c' }}>
                 {deal.reported}
               </div>
             </div>
@@ -213,43 +211,43 @@ export default function HomePage() {
 
       {/* The Story: Why This Is Real */}
       <section className="content-section" id="why">
-        <div style={{ background: '#0B0F19', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '16px', padding: 'clamp(28px, 5vw, 48px)' }}>
+        <div className="tactical-card" style={{ padding: 'clamp(28px, 5vw, 48px)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px', alignItems: 'center' }}>
             <div>
               <span className="section-badge">Why Now</span>
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 36px)', color: '#FFFFFF', margin: '12px 0 16px', lineHeight: 1.2 }}>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 36px)', color: '#141011', margin: '12px 0 16px', lineHeight: 1.2, fontWeight: 800 }}>
                 The labs have read the internet. They have never seen how your business runs.
               </h2>
-              <p style={{ color: '#94A3B8', fontSize: '16px', lineHeight: '1.6', marginBottom: '14px' }}>
+              <p style={{ color: '#4a4646', fontSize: '16px', lineHeight: '1.6', marginBottom: '14px' }}>
                 AI models learned to write from public websites. What they cannot learn from the web is how an estimate gets priced, how a dispute gets settled, or how a delayed shipment gets resolved.
               </p>
-              <p style={{ color: '#94A3B8', fontSize: '16px', lineHeight: '1.6', margin: 0 }}>
+              <p style={{ color: '#4a4646', fontSize: '16px', lineHeight: '1.6', margin: 0 }}>
                 That real-world knowledge sits in your email, your spreadsheets, and your daily files — and nowhere else. So the labs started paying for it.
               </p>
             </div>
 
-            <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '24px', display: 'grid', gap: '16px' }}>
-              <div style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '14px' }}>
-                <div style={{ fontSize: '28px', fontFamily: 'var(--font-display)', color: 'var(--cyan-primary)', fontWeight: 700 }}>
+            <div style={{ background: '#faf9f6', border: '1.5px solid #e4e0d7', borderRadius: '6px', padding: '24px', display: 'grid', gap: '16px', boxShadow: '2px 2px 0px #dedad2' }}>
+              <div style={{ borderBottom: '1px solid #e4e0d7', paddingBottom: '14px' }}>
+                <div style={{ fontSize: '28px', fontFamily: 'var(--font-display)', color: '#b45309', fontWeight: 800 }}>
                   $1 Billion+
                 </div>
-                <div style={{ fontSize: '13px', color: '#94A3B8', marginTop: '4px' }}>
+                <div style={{ fontSize: '13px', color: '#4a4646', marginTop: '4px' }}>
                   Committed by AI data companies to purchase enterprise operating records over the next 12 months.
                 </div>
               </div>
-              <div style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '14px' }}>
-                <div style={{ fontSize: '28px', fontFamily: 'var(--font-display)', color: '#FFFFFF', fontWeight: 700 }}>
+              <div style={{ borderBottom: '1px solid #e4e0d7', paddingBottom: '14px' }}>
+                <div style={{ fontSize: '28px', fontFamily: 'var(--font-display)', color: '#141011', fontWeight: 800 }}>
                   $10 Million
                 </div>
-                <div style={{ fontSize: '13px', color: '#94A3B8', marginTop: '4px' }}>
+                <div style={{ fontSize: '13px', color: '#4a4646', marginTop: '4px' }}>
                   Winning bid by Google for Spirit Airlines’ customer chats and emails in federal bankruptcy court.
                 </div>
               </div>
               <div>
-                <div style={{ fontSize: '28px', fontFamily: 'var(--font-display)', color: '#10B981', fontWeight: 700 }}>
+                <div style={{ fontSize: '28px', fontFamily: 'var(--font-display)', color: '#15803d', fontWeight: 800 }}>
                   $350K – $650K
                 </div>
-                <div style={{ fontSize: '13px', color: '#94A3B8', marginTop: '4px' }}>
+                <div style={{ fontSize: '13px', color: '#4a4646', marginTop: '4px' }}>
                   Typical payments to everyday accounting, freight, and engineering firms with 50–100 employees.
                 </div>
               </div>
@@ -277,73 +275,73 @@ export default function HomePage() {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
           {/* What You Do */}
-          <div style={{ background: '#0B0F19', border: '1px solid rgba(0, 242, 254, 0.3)', borderRadius: '12px', padding: '32px' }}>
-            <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--cyan-primary)', fontWeight: 700 }}>
+          <div className="tactical-card" style={{ padding: '32px' }}>
+            <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: '#b45309', fontWeight: 700 }}>
               WHAT YOU DO
             </span>
-            <div style={{ fontSize: '32px', fontFamily: 'var(--font-display)', color: '#FFFFFF', margin: '8px 0 20px', fontWeight: 700 }}>
+            <div style={{ fontSize: '32px', fontFamily: 'var(--font-display)', color: '#141011', margin: '8px 0 20px', fontWeight: 800 }}>
               About 1 Hour Total
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '16px' }}>
               <li style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <span style={{ color: 'var(--cyan-primary)', fontWeight: 700 }}>✓</span>
+                <span style={{ color: '#b45309', fontWeight: 700 }}>✓</span>
                 <div>
-                  <strong style={{ color: '#FFFFFF', display: 'block' }}>Answer a few questions</strong>
-                  <span style={{ color: '#94A3B8', fontSize: '14px' }}>Two minutes online. No files uploaded and no passwords needed.</span>
+                  <strong style={{ color: '#141011', display: 'block' }}>Answer a few questions</strong>
+                  <span style={{ color: '#4a4646', fontSize: '14px' }}>Two minutes online. No files uploaded and no passwords needed.</span>
                 </div>
               </li>
               <li style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <span style={{ color: 'var(--cyan-primary)', fontWeight: 700 }}>✓</span>
+                <span style={{ color: '#b45309', fontWeight: 700 }}>✓</span>
                 <div>
-                  <strong style={{ color: '#FFFFFF', display: 'block' }}>Take one confidential call</strong>
-                  <span style={{ color: '#94A3B8', fontSize: '14px' }}>About 30 minutes at a time you choose to confirm what records you have.</span>
+                  <strong style={{ color: '#141011', display: 'block' }}>Take one confidential call</strong>
+                  <span style={{ color: '#4a4646', fontSize: '14px' }}>About 30 minutes at a time you choose to confirm what records you have.</span>
                 </div>
               </li>
               <li style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <span style={{ color: 'var(--cyan-primary)', fontWeight: 700 }}>✓</span>
+                <span style={{ color: '#b45309', fontWeight: 700 }}>✓</span>
                 <div>
-                  <strong style={{ color: '#FFFFFF', display: 'block' }}>Approve the offer</strong>
-                  <span style={{ color: '#94A3B8', fontSize: '14px' }}>Read the clear written terms and sign only if you like the numbers.</span>
+                  <strong style={{ color: '#141011', display: 'block' }}>Approve the offer</strong>
+                  <span style={{ color: '#4a4646', fontSize: '14px' }}>Read the clear written terms and sign only if you like the numbers.</span>
                 </div>
               </li>
             </ul>
           </div>
 
           {/* What We Handle */}
-          <div style={{ background: '#0B0F19', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '32px' }}>
-            <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: '#10B981', fontWeight: 700 }}>
+          <div className="tactical-card" style={{ padding: '32px', border: '1.5px solid #141011', boxShadow: '3px 3px 0px #141011' }}>
+            <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: '#15803d', fontWeight: 700 }}>
               WHAT WE HANDLE
             </span>
-            <div style={{ fontSize: '32px', fontFamily: 'var(--font-display)', color: '#FFFFFF', margin: '8px 0 20px', fontWeight: 700 }}>
+            <div style={{ fontSize: '32px', fontFamily: 'var(--font-display)', color: '#141011', margin: '8px 0 20px', fontWeight: 800 }}>
               The Entire Sale
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '16px' }}>
               <li style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <span style={{ color: '#10B981', fontWeight: 700 }}>✓</span>
+                <span style={{ color: '#15803d', fontWeight: 700 }}>✓</span>
                 <div>
-                  <strong style={{ color: '#FFFFFF', display: 'block' }}>Valuation</strong>
-                  <span style={{ color: '#94A3B8', fontSize: '14px' }}>We estimate what your records are worth based on current buyer demand.</span>
+                  <strong style={{ color: '#141011', display: 'block' }}>Valuation</strong>
+                  <span style={{ color: '#4a4646', fontSize: '14px' }}>We estimate what your records are worth based on current buyer demand.</span>
                 </div>
               </li>
               <li style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <span style={{ color: '#10B981', fontWeight: 700 }}>✓</span>
+                <span style={{ color: '#15803d', fontWeight: 700 }}>✓</span>
                 <div>
-                  <strong style={{ color: '#FFFFFF', display: 'block' }}>The Offer & Negotiation</strong>
-                  <span style={{ color: '#94A3B8', fontSize: '14px' }}>We prepare your written offer: price, permitted AI use, and payment schedule.</span>
+                  <strong style={{ color: '#141011', display: 'block' }}>The Offer & Negotiation</strong>
+                  <span style={{ color: '#4a4646', fontSize: '14px' }}>We prepare your written offer: price, permitted AI use, and payment schedule.</span>
                 </div>
               </li>
               <li style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <span style={{ color: '#10B981', fontWeight: 700 }}>✓</span>
+                <span style={{ color: '#15803d', fontWeight: 700 }}>✓</span>
                 <div>
-                  <strong style={{ color: '#FFFFFF', display: 'block' }}>De-identification & Privacy</strong>
-                  <span style={{ color: '#94A3B8', fontSize: '14px' }}>All names, emails, phone numbers, and account details are scrubbed before transfer.</span>
+                  <strong style={{ color: '#141011', display: 'block' }}>De-identification & Privacy</strong>
+                  <span style={{ color: '#4a4646', fontSize: '14px' }}>All names, emails, phone numbers, and account details are scrubbed before transfer.</span>
                 </div>
               </li>
               <li style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <span style={{ color: '#10B981', fontWeight: 700 }}>✓</span>
+                <span style={{ color: '#15803d', fontWeight: 700 }}>✓</span>
                 <div>
-                  <strong style={{ color: '#FFFFFF', display: 'block' }}>Closing & Wire Payment</strong>
-                  <span style={{ color: '#94A3B8', fontSize: '14px' }}>Funds land directly in your bank account before files are released.</span>
+                  <strong style={{ color: '#141011', display: 'block' }}>Closing & Wire Payment</strong>
+                  <span style={{ color: '#4a4646', fontSize: '14px' }}>Funds land directly in your bank account before files are released.</span>
                 </div>
               </li>
             </ul>
@@ -351,12 +349,12 @@ export default function HomePage() {
         </div>
 
         {/* Guarantee Banner */}
-        <div style={{ marginTop: '24px', background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '12px', padding: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+        <div style={{ marginTop: '24px', background: '#f0fdf4', border: '1.5px solid #16a34a', boxShadow: '2.5px 2.5px 0px #bbf7d0', borderRadius: '6px', padding: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
           <div>
-            <strong style={{ color: '#FFFFFF', fontSize: '16px', display: 'block' }}>
+            <strong style={{ color: '#141011', fontSize: '16px', display: 'block' }}>
               No offer, no cost. You risk nothing by asking.
             </strong>
-            <span style={{ color: '#94A3B8', fontSize: '14px' }}>
+            <span style={{ color: '#4a4646', fontSize: '14px' }}>
               There is zero fee to the owner. If no offer is made, or if you don’t like the terms, you walk away and nothing has left your systems.
             </span>
           </div>
@@ -376,50 +374,50 @@ export default function HomePage() {
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
-          <div style={{ background: '#0B0F19', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '28px' }}>
-            <div style={{ fontSize: '20px', fontFamily: 'var(--font-mono)', color: 'var(--cyan-primary)', fontWeight: 700, marginBottom: '8px' }}>
+          <div className="tactical-card" style={{ padding: '28px' }}>
+            <div style={{ fontSize: '20px', fontFamily: 'var(--font-mono)', color: '#b45309', fontWeight: 700, marginBottom: '8px' }}>
               1. TODAY · 2 MIN
             </div>
-            <h3 style={{ fontSize: '18px', color: '#FFFFFF', margin: '0 0 10px' }}>
+            <h3 style={{ fontSize: '18px', color: '#141011', margin: '0 0 10px', fontWeight: 700 }}>
               Request Your Estimate
             </h3>
-            <p style={{ color: '#94A3B8', fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+            <p style={{ color: '#4a4646', fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
               Tell us your approximate headcount, years in business, and where your records live. Nothing uploaded.
             </p>
           </div>
 
-          <div style={{ background: '#0B0F19', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '28px' }}>
-            <div style={{ fontSize: '20px', fontFamily: 'var(--font-mono)', color: 'var(--cyan-primary)', fontWeight: 700, marginBottom: '8px' }}>
+          <div className="tactical-card" style={{ padding: '28px' }}>
+            <div style={{ fontSize: '20px', fontFamily: 'var(--font-mono)', color: '#b45309', fontWeight: 700, marginBottom: '8px' }}>
               2. DAY 1 · 30 MIN
             </div>
-            <h3 style={{ fontSize: '18px', color: '#FFFFFF', margin: '0 0 10px' }}>
+            <h3 style={{ fontSize: '18px', color: '#141011', margin: '0 0 10px', fontWeight: 700 }}>
               Confidential Call
             </h3>
-            <p style={{ color: '#94A3B8', fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+            <p style={{ color: '#4a4646', fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
               We confirm what software tools you have and give you a realistic payout range before any review.
             </p>
           </div>
 
-          <div style={{ background: '#0B0F19', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '28px' }}>
-            <div style={{ fontSize: '20px', fontFamily: 'var(--font-mono)', color: 'var(--cyan-primary)', fontWeight: 700, marginBottom: '8px' }}>
+          <div className="tactical-card" style={{ padding: '28px' }}>
+            <div style={{ fontSize: '20px', fontFamily: 'var(--font-mono)', color: '#b45309', fontWeight: 700, marginBottom: '8px' }}>
               3. WRITTEN OFFER
             </div>
-            <h3 style={{ fontSize: '18px', color: '#FFFFFF', margin: '0 0 10px' }}>
+            <h3 style={{ fontSize: '18px', color: '#141011', margin: '0 0 10px', fontWeight: 700 }}>
               Review the Agreement
             </h3>
-            <p style={{ color: '#94A3B8', fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+            <p style={{ color: '#4a4646', fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
               Clear price, scope, permitted AI training use, and payment schedule, in one plain-English agreement.
             </p>
           </div>
 
-          <div style={{ background: '#0B0F19', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '28px' }}>
-            <div style={{ fontSize: '20px', fontFamily: 'var(--font-mono)', color: '#10B981', fontWeight: 700, marginBottom: '8px' }}>
+          <div className="tactical-card" style={{ padding: '28px' }}>
+            <div style={{ fontSize: '20px', fontFamily: 'var(--font-mono)', color: '#15803d', fontWeight: 700, marginBottom: '8px' }}>
               4. GET PAID
             </div>
-            <h3 style={{ fontSize: '18px', color: '#FFFFFF', margin: '0 0 10px' }}>
+            <h3 style={{ fontSize: '18px', color: '#141011', margin: '0 0 10px', fontWeight: 700 }}>
               De-Identify & Wire
             </h3>
-            <p style={{ color: '#94A3B8', fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+            <p style={{ color: '#4a4646', fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
               All identities are scrubbed. The agreed wire transfer lands in your bank. You keep your original files.
             </p>
           </div>
@@ -428,31 +426,31 @@ export default function HomePage() {
 
       {/* Is Your Firm a Fit? */}
       <section className="content-section" id="fit">
-        <div style={{ background: '#0B0F19', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '16px', padding: 'clamp(28px, 5vw, 44px)' }}>
+        <div className="tactical-card" style={{ padding: 'clamp(28px, 5vw, 44px)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px' }}>
             <div>
               <span className="section-badge">Eligibility</span>
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', color: '#FFFFFF', margin: '10px 0 16px' }}>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', color: '#141011', margin: '10px 0 16px', fontWeight: 800 }}>
                 Most Established Firms Qualify
               </h2>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '12px' }}>
-                <li style={{ display: 'flex', gap: '10px', color: '#E2E8F0', fontSize: '15px' }}>
-                  <span style={{ color: 'var(--cyan-primary)' }}>✔</span>
+                <li style={{ display: 'flex', gap: '10px', color: '#141011', fontSize: '15px' }}>
+                  <span style={{ color: '#15803d', fontWeight: 700 }}>✔</span>
                   <span><strong>20+ people:</strong> Full-time staff, now or at your peak.</span>
                 </li>
-                <li style={{ display: 'flex', gap: '10px', color: '#E2E8F0', fontSize: '15px' }}>
-                  <span style={{ color: 'var(--cyan-primary)' }}>✔</span>
+                <li style={{ display: 'flex', gap: '10px', color: '#141011', fontSize: '15px' }}>
+                  <span style={{ color: '#15803d', fontWeight: 700 }}>✔</span>
                   <span><strong>3+ years in business:</strong> Of email, shared files, and records still on hand.</span>
                 </li>
-                <li style={{ display: 'flex', gap: '10px', color: '#E2E8F0', fontSize: '15px' }}>
-                  <span style={{ color: 'var(--cyan-primary)' }}>✔</span>
+                <li style={{ display: 'flex', gap: '10px', color: '#141011', fontSize: '15px' }}>
+                  <span style={{ color: '#15803d', fontWeight: 700 }}>✔</span>
                   <span><strong>Any status:</strong> Operating normally, downsizing, winding down, or closed.</span>
                 </li>
               </ul>
             </div>
 
             <div>
-              <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '12px' }}>
+              <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: '#78716c', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '12px', fontWeight: 700 }}>
                 INDUSTRIES IN HIGHEST DEMAND
               </span>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -471,13 +469,15 @@ export default function HomePage() {
                     key={ind}
                     href="/valuation"
                     style={{
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      borderRadius: '8px',
+                      background: '#faf9f6',
+                      border: '1.5px solid #e4e0d7',
+                      borderRadius: '4px',
                       padding: '8px 14px',
                       fontSize: '13px',
-                      color: '#E2E8F0',
+                      color: '#141011',
                       textDecoration: 'none',
+                      fontWeight: 600,
+                      boxShadow: '1.5px 1.5px 0px #dedad2',
                     }}
                   >
                     {ind} →
@@ -502,10 +502,8 @@ export default function HomePage() {
           {questions.map((q, idx) => (
             <details
               key={idx}
+              className="tactical-card"
               style={{
-                background: '#0B0F19',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                borderRadius: '10px',
                 padding: '18px 24px',
               }}
             >
@@ -513,14 +511,14 @@ export default function HomePage() {
                 style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: '18px',
-                  color: '#FFFFFF',
+                  color: '#141011',
                   cursor: 'pointer',
-                  fontWeight: 600,
+                  fontWeight: 700,
                 }}
               >
                 {q.q}
               </summary>
-              <p style={{ color: '#94A3B8', fontSize: '15px', lineHeight: '1.6', marginTop: '12px', marginBottom: 0 }}>
+              <p style={{ color: '#4a4646', fontSize: '15px', lineHeight: '1.6', marginTop: '12px', marginBottom: 0 }}>
                 {q.a}
               </p>
             </details>
@@ -532,10 +530,10 @@ export default function HomePage() {
       <section className="content-section" style={{ textAlign: 'center', padding: '80px 0 60px' }}>
         <div style={{ maxWidth: '680px', margin: '0 auto' }}>
           <span className="section-badge">Get Your Written Offer</span>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, 4.5vw, 48px)', fontWeight: 800, margin: '14px 0 20px', color: '#FFFFFF' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, 4.5vw, 48px)', fontWeight: 800, margin: '14px 0 20px', color: '#141011' }}>
             Your records are already sitting there. Find out what they’re worth.
           </h2>
-          <p style={{ color: '#94A3B8', fontSize: '17px', lineHeight: '1.6', marginBottom: '32px' }}>
+          <p style={{ color: '#4a4646', fontSize: '17px', lineHeight: '1.6', marginBottom: '32px' }}>
             Two minutes online. No files uploaded. Zero cost to you. We call within one business day with your firm’s valuation range.
           </p>
           <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>

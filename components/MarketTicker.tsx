@@ -60,7 +60,7 @@ export default function MarketTicker() {
             Published across the data licensing market in 2026. Real companies paid six and seven figures for everyday records.
           </p>
         </div>
-        <Link href="/valuation" style={{ fontSize: '13px', fontFamily: 'var(--font-mono)', color: 'var(--cyan-primary)', textDecoration: 'none' }}>
+        <Link href="/valuation" style={{ fontSize: '13px', fontFamily: 'var(--font-mono)', color: '#141011', fontWeight: 700, textDecoration: 'none', background: '#faf9f6', border: '1px solid #e4e0d7', padding: '6px 12px', borderRadius: '4px', boxShadow: '1.5px 1.5px 0px #dedad2' }}>
           Estimate What Yours Are Worth →
         </Link>
       </div>
@@ -72,24 +72,29 @@ export default function MarketTicker() {
               <span className="tranche-tag">{tranche.id}</span>
               <span
                 style={{
-                  fontSize: '10px',
+                  fontSize: '10.5px',
                   fontFamily: 'var(--font-mono)',
                   fontWeight: 700,
                   padding: '2px 8px',
-                  borderRadius: '9999px',
+                  borderRadius: '3px',
                   background:
                     tranche.status === 'PAID'
-                      ? 'rgba(16, 185, 129, 0.15)'
+                      ? '#dcfce7'
                       : tranche.status === 'VERIFIED'
-                      ? 'rgba(245, 158, 11, 0.15)'
-                      : 'rgba(59, 130, 246, 0.15)',
+                      ? '#fef3c7'
+                      : '#e0f2fe',
                   color:
                     tranche.status === 'PAID'
-                      ? 'var(--green-verified)'
+                      ? '#15803d'
                       : tranche.status === 'VERIFIED'
-                      ? 'var(--amber-warn)'
-                      : 'var(--blue-accent)',
-                  border: '1px solid currentColor',
+                      ? '#b45309'
+                      : '#0369a1',
+                  border:
+                    tranche.status === 'PAID'
+                      ? '1px solid #86efac'
+                      : tranche.status === 'VERIFIED'
+                      ? '1px solid #fde047'
+                      : '1px solid #7dd3fc',
                 }}
               >
                 {tranche.status}

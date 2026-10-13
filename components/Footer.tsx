@@ -13,8 +13,8 @@ export default function Footer() {
             <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: '1.6', maxWidth: '320px' }}>
               We help business owners license de-identified copies of their everyday work records to AI labs. You keep your originals, approve every term, and pay zero fees.
             </p>
-            <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--green-verified)' }}>
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--green-verified)' }} />
+            <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '11.5px', fontFamily: 'var(--font-mono)', color: '#15803d', fontWeight: 700 }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '1px', background: '#16a34a' }} />
               ZERO COST TO SELLERS · 100% CONFIDENTIAL
             </div>
           </div>

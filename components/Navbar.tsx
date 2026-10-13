@@ -21,13 +21,13 @@ export default function Navbar() {
       <div className="top-status-ticker">
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <span className="live-pulse-dot" />
-          <span style={{ color: '#E2E8F0', fontWeight: 600 }}>
+          <span style={{ color: '#141011', fontWeight: 700 }}>
             AI labs are paying established firms six figures for their old records
           </span>
         </div>
-        <div style={{ display: 'flex', gap: '16px' }}>
-          <span style={{ color: '#10B981', fontWeight: 600 }}>Zero Cost to You</span>
-          <span style={{ color: '#CBD5E1' }}>You Keep Your Originals</span>
+        <div style={{ display: 'flex', gap: '14px', alignItems: 'center' }}>
+          <span className="ticker-badge-free">Zero Cost to You</span>
+          <span className="ticker-badge-trust">You Keep Your Originals</span>
         </div>
       </div>
 
@@ -45,11 +45,11 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   style={{
-                    color: pathname === link.href ? '#FFFFFF' : '#CBD5E1',
+                    color: pathname === link.href ? '#141011' : '#4a4646',
                     textDecoration: 'none',
-                    fontWeight: 600,
+                    fontWeight: pathname === link.href ? 700 : 600,
                     fontSize: '14px',
-                    transition: 'color 0.2s',
+                    transition: 'color 0.15s ease',
                   }}
                   onClick={() => setMobileOpen(false)}
                 >
@@ -67,12 +67,13 @@ export default function Navbar() {
                 onClick={() => setMobileOpen(!mobileOpen)}
                 style={{
                   display: 'none',
-                  background: 'transparent',
-                  border: '1px solid rgba(255,255,255,0.2)',
-                  color: '#FFFFFF',
+                  background: '#ffffff',
+                  border: '1.5px solid #141011',
+                  color: '#141011',
                   padding: '6px 12px',
-                  borderRadius: '6px',
+                  borderRadius: '4px',
                   cursor: 'pointer',
+                  fontWeight: 700,
                 }}
                 className="mobile-nav-btn"
                 aria-label="Toggle menu"

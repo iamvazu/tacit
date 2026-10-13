@@ -75,14 +75,16 @@ export default function ValuationSimulator() {
               onClick={() => setHasEng(!hasEng)}
               style={{
                 padding: '8px 14px',
-                borderRadius: '8px',
+                borderRadius: '4px',
                 fontSize: '12px',
                 fontFamily: 'var(--font-mono)',
+                fontWeight: hasEng ? 700 : 500,
                 cursor: 'pointer',
-                border: '1px solid',
-                borderColor: hasEng ? 'var(--cyan-primary)' : 'var(--border-subtle)',
-                background: hasEng ? 'rgba(0, 242, 254, 0.12)' : 'rgba(255,255,255,0.03)',
-                color: hasEng ? 'var(--cyan-primary)' : 'var(--text-muted)',
+                border: '1.5px solid',
+                borderColor: hasEng ? '#141011' : '#e4e0d7',
+                background: hasEng ? '#fef3c7' : '#ffffff',
+                color: hasEng ? '#141011' : '#78716c',
+                boxShadow: hasEng ? '1.5px 1.5px 0px #141011' : 'none',
               }}
             >
               {hasEng ? '✓' : '+'} Email & Team Chat (Outlook, Slack, Teams)
@@ -92,14 +94,16 @@ export default function ValuationSimulator() {
               onClick={() => setHasOps(!hasOps)}
               style={{
                 padding: '8px 14px',
-                borderRadius: '8px',
+                borderRadius: '4px',
                 fontSize: '12px',
                 fontFamily: 'var(--font-mono)',
+                fontWeight: hasOps ? 700 : 500,
                 cursor: 'pointer',
-                border: '1px solid',
-                borderColor: hasOps ? 'var(--cyan-primary)' : 'var(--border-subtle)',
-                background: hasOps ? 'rgba(0, 242, 254, 0.12)' : 'rgba(255,255,255,0.03)',
-                color: hasOps ? 'var(--cyan-primary)' : 'var(--text-muted)',
+                border: '1.5px solid',
+                borderColor: hasOps ? '#141011' : '#e4e0d7',
+                background: hasOps ? '#fef3c7' : '#ffffff',
+                color: hasOps ? '#141011' : '#78716c',
+                boxShadow: hasOps ? '1.5px 1.5px 0px #141011' : 'none',
               }}
             >
               {hasOps ? '✓' : '+'} Projects & Tickets (Jira, Zendesk, Asana)
@@ -109,14 +113,16 @@ export default function ValuationSimulator() {
               onClick={() => setHasFin(!hasFin)}
               style={{
                 padding: '8px 14px',
-                borderRadius: '8px',
+                borderRadius: '4px',
                 fontSize: '12px',
                 fontFamily: 'var(--font-mono)',
+                fontWeight: hasFin ? 700 : 500,
                 cursor: 'pointer',
-                border: '1px solid',
-                borderColor: hasFin ? 'var(--cyan-primary)' : 'var(--border-subtle)',
-                background: hasFin ? 'rgba(0, 242, 254, 0.12)' : 'rgba(255,255,255,0.03)',
-                color: hasFin ? 'var(--cyan-primary)' : 'var(--text-muted)',
+                border: '1.5px solid',
+                borderColor: hasFin ? '#141011' : '#e4e0d7',
+                background: hasFin ? '#fef3c7' : '#ffffff',
+                color: hasFin ? '#141011' : '#78716c',
+                boxShadow: hasFin ? '1.5px 1.5px 0px #141011' : 'none',
               }}
             >
               {hasFin ? '✓' : '+'} Accounting & Ledgers (QuickBooks, Xero, ERP)
